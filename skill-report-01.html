@@ -3,4 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鍾�
+<title>鍾心管家 Skill 實測報告 #01｜簡報/報告/Google 整合</title>
+<style>
+  :root{
+    --bg:#0f1220; --card:#1a1f33; --card2:#232a47; --txt:#e8ecff; --mut:#9aa3c7;
+    --gold:#f5c96b; --green:#5fd68a; --blue:#6ea8ff; --red:#ff7a7a;
+    --border:#2e3657;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:40px 20px;}
+  .wrap{max-width:900px;margin:0 auto;}
+  header{text-align:center;padding:20px 0 30px;}
+  header .dog{font-size:3rem;display:block;margin-bottom:6px;}
+  header h1{font-size:1.9rem;color:#fff;letter-spacing:1px;}
+  header p{color:var(--mut);margin-top:6px;}
+  .meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:var(--mut);margin-top:12px;}
+  .meta span{background:var(--card);padding:4px 12px;border-radius:20px;border:1px solid var(--border);}
+  h2{font-size:1.3rem;color:var(--gold);margin:36px 0 16px;padding-left:12px;border-left:4px solid var(--gold);}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:14px 0;}
+  .card .hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .card .emoji{font-size:1.8rem;}
+  .card h3{font-size:1.15rem;color:#fff;}
+  .stars{color:var(--gold);font-size:.9rem;}
+  .tag{font-size:.72rem;padding:3px 10px;border-radius:12px;font-weight:600;}
+  .tag.good{background:#1d3a2a;color:var(--green);}
+  .tag.src{background:#1f2d4a;color:var(--blue);}
+  .tag.rec{background:#3a2f1d;color:var(--gold);}
+  .desc{color:var(--txt);margin:6px 0 12px;font-size:.95rem;}
+  .sec{color:var(--mut);font-size:.85rem;margin:8px 0 2px;}
+  .val{font-size:.95rem;margin-bottom:8px;}
+  .stars-line{color:var(--gold);}
+  .fit{background:var(--card2);border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.92rem;}
+  .fit .t{color:var(--gold);font-weight:600;}
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.9rem;}
+  th,td{padding:12px;text-align:left;border-bottom:1px solid var(--border);}
+  th{color:var(--gold);font-weight:600;background:var(--card2);}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;}
+  .pill.p1{background:#3a2f1d;color:var(--gold);}
+  .pill.p2{background:#1d3a2a;color:var(--green);}
+  .pill.p3{background:#1f2d4a;color:var(--blue);}
+  .pill.p4{background:#3a2626;color:var(--red);}
+  .note{background:#1f2630;border:1px dashed var(--border);border-radius:10px;padding:14px 18px;margin-top:24px;font-size:.88rem;color:var(--mut);}
+  .note b{color:var(--gold);}
+  footer{text-align:center;color:var(--mut);font-size:.8rem;margin-top:40px;}
+  em{color:var(--mut);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="dog">🐶📋</span>
+    <h1>鍾心管家 · Skill 實測報告 #01</h1>
+    <p>簡報製作 × 報告生成 × Google 雲端整合 — 評估這些第三方技能值不值得安裝</p>
+    <div class="meta">
+      <span>📅 2026-08-09</span>
+      <span>🔍 來源：SkillsMP</span>
+      <span>🔒 已檢視原始碼</span>
+      <span>💳 全部免費</span>
+    </div>
+  </header>
+
+  <h2>🐾 本次評估的 4 個技能</h2>
+
+  <!-- 1 google-workspace-ops -->
+  <div class="card">
+    <div class="hd"><span class="emoji">📂</span><h3>google-workspace-ops</h3><span class="stars">★★★★★ 238K★</span><span class="tag rec">最推薦</span><span class="tag src">affaan-m</span></div>
+    <div class="desc">把 Google Drive / Docs / Sheets / Slides 當成「一個工作系統」來操作：找文件、摘要、原地精準編輯、整理試算表、匯入修復簡報、清理重複檔案。不是改單一檔案，而是整套雲端工作流。</div>
+    <div class="sec">🔒 安全性</div>
+    <div class="val">純流程規範（SOP），<span class="stars-line">無任何程式碼或惡意指令</span>。✅</div>
+    <div class="sec">🎯 適合老大</div>
+    <div class="val">⭐⭐⭐⭐⭐ 你重度用 Google Sheets 管財務＋整理資料，這技能能讓我更聰明地操控你的雲端文件、試算表、簡報。高度推薦。</div>
+  </div>
+
+  <!-- 2 powerpoint -->
+  <div class="card">
+    <div class="hd"><span class="emoji">📊</span><h3>powerpoint</h3><span class="stars">★★★★★ 227K★</span><span class="tag good">推薦</span><span class="tag src">NousResearch</span></div>
+    <div class="desc">用 python-pptx 建立/讀取/編輯 .pptx：從 JSON 規格建簡報、抽文字與備忘稿、換字換圖、複製刪除移動投影片、套公司範本、轉成 PNG 圖片。離線執行、免裝 Office。</div>
+    <div class="sec">🔒 安全性</div>
+    <div class="val">MIT 開源、知名 AI 研究機構 NousResearch 出品，標準 python-pptx 操作指引，<span class="stars-line">無惡意程式碼</span>。✅</div>
+    <div class="sec">🎯 適合老大</div>
+    <div class="val">⭐⭐⭐⭐ 工作簡報、退休規劃報告、未來教育小孩都可能用得到。需裝免費的 python-pptx。</div>
+  </div>
+
+  <!-- 3 consulting-analysis -->
+  <div class="card">
+    <div class="hd"><span class="emoji">🔬</span><h3>consulting-analysis</h3><span class="stars">★★★★ 79K★</span><span class="tag good">需要時用</span><span class="tag src">bytedance</span></div>
+    <div class="desc">產生「顧問級研究報告」（McKinsey / BCG 風格）：市場分析、競品分析、產業研究、投資盡職調查。含章節框架、圖表、策略洞察。<b>極重視資料真實性、嚴禁幻覺杜撰</b>，可輸出中文。</div>
+    <div class="sec">🔒 安全性</div>
+    <div class="val">純方法論與流程規範，<span class="stars-line">無程式碼、無惡意指令</span>。✅</div>
+    <div class="sec">🎯 適合老大</div>
+    <div class="val">⭐⭐⭐⭐ 若之後要寫<b>投資標的評估、產業研究、公司簡報</b>，這套很強。日常使用頻率較低。</div>
+  </div>
+
+  <!-- 4 frontend-slides -->
+  <div class="card">
+    <div class="hd"><span class="emoji">✨</span><h3>frontend-slides</h3><span class="stars">★★★★ 238K★</span><span class="tag good">特定用途</span><span class="tag src">affaan-m</span></div>
+    <div class="desc">建立「動畫豐富的 HTML 投影片」，可從零做或把 PPT 轉成網頁簡報。零依賴、純瀏覽器跑，附設計樣式庫。輸出是<b>網頁</b>而非 .pptx。</div>
+    <div class="sec">🔒 安全性</div>
+    <div class="val">純 CSS/JS 指引，<span class="stars-line">無惡意指令</span>。✅</div>
+    <div class="sec">🎯 適合老大</div>
+    <div class="val">⭐⭐⭐ 想做出「很酷的網頁版簡報」時很好用；但要「可寄出的 .pptx」時，用 powerpoint 那個更實際。</div>
+  </div>
+
+  <h2>🎯 總結推薦</h2>
+  <table>
+    <tr><th>優先</th><th>技能</th><th>用途</th><th>建議</th></tr>
+    <tr><td><span class="pill p1">🥇 1</span></td><td>google-workspace-ops</td><td>Google 全家桶（含你的 Sheets）</td><td>最推薦，馬上能用</td></tr>
+    <tr><td><span class="pill p2">🥈 2</span></td><td>powerpoint</td><td>製作 .pptx 簡報</td><td>推薦（需裝 python-pptx）</td></tr>
+    <tr><td><span class="pill p3">🥉 3</span></td><td>consulting-analysis</td><td>顧問級研究報告</td><td>有研究需求再用</td></tr>
+    <tr><td><span class="pill p4">4</span></td><td>frontend-slides</td><td>網頁簡報</td><td>想做酷炫網頁簡報再用</td></tr>
+  </table>
+
+  <div class="note">
+    <b>⚠️ 安全提醒：</b>這 4 個都是第三方技能（屬未信任程式碼）。我已下載並逐字檢視原始碼，確認無惡意內容。若要<b>安裝</b>到工作區，依規矩仍需老大你明確同意，我會先驗證再裝，且全部免費、不花你半毛錢。
+  </div>
+
+  <footer>鍾心管家 🐶 · 自動整理報告 · 資料來源 SkillsMP（開源 / 免費）</footer>
+</div>
+</body>
+</html>
