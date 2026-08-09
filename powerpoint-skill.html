@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerpoint Skill 專屬介紹｜鍾心管家實測</title>
+<style>
+  :root{
+    --bg:#0e1420;--card:#171f31;--card2:#1f2a42;--txt:#eaf0ff;--mut:#98a3c9;
+    --gold:#f5c96b;--green:#5fd68a;--blue:#6ea8ff;--red:#ff7a7a;--border:#2c3657;--purple:#b48bff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;padding:40px 20px;}
+  .wrap{max-width:920px;margin:0 auto;}
+  header{background:linear-gradient(135deg,#1b2440,#251a3a);border:1px solid var(--border);border-radius:18px;padding:32px;text-align:center;margin-bottom:28px;}
+  header .icon{font-size:2.8rem;}
+  header h1{font-size:2rem;margin:8px 0 4px;background:linear-gradient(90deg,var(--gold),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  header .sub{color:var(--mut);font-size:.95rem;}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+  .badge{font-size:.75rem;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,.04);}
+  .badge.g{color:var(--gold);} .badge.b{color:var(--blue);} .badge.p{color:var(--purple);} .badge.n{color:var(--mut);}
+  h2{font-size:1.35rem;color:var(--gold);margin:34px 0 14px;padding-left:12px;border-left:4px solid var(--gold);}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:12px 0;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+  .feat{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px;font-size:.88rem;}
+  .feat .e{font-size:1.5rem;}
+  .feat .t{font-weight:600;color:#fff;margin:6px 0 4px;}
+  .feat .d{color:var(--mut);font-size:.82rem;}
+  /* 簡報示意 */
+  .showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:8px;}
+  .slide{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .slide .body{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .slide .cap{padding:12px 14px;font-size:.8rem;color:var(--mut);border-top:1px solid var(--border);}
+  .s1{background:linear-gradient(135deg,#3b2f63,#1b2a4a);}
+  .s1 h3{color:var(--purple);font-size:1.3rem;text-align:center;}
+  .s1 p{color:var(--mut);font-size:.8rem;text-align:center;margin-top:6px;}
+  .s2{background:linear-gradient(135deg,#123c2e,#0f2130);flex-direction:column;}
+  .s2 .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:8px;}
+  .s2 .item{font-size:.8rem;margin:5px 0;}
+  .s3{background:linear-gradient(135deg,#1f2a42,#3a1d3a);flex-direction:column;align-items:center;}
+  .s3 .chart{display:flex;align-items:flex-end;gap:8px;height:80px;margin-top:8px;}
+  .s3 .bar{width:26px;background:linear-gradient(180deg,var(--gold),var(--purple));border-radius:4px 4px 0 0;}
+  .s3 .lbl{font-size:.7rem;color:var(--mut);}
+  .code{background:#0b0f1a;border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-family:monospace;font-size:.82rem;color:#cbe3ff;overflow-x:auto;white-space:pre;}
+  .code .cm{color:#5c6b8a;} .code .k{color:var(--purple);} .code .s{color:var(--green);}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88rem;}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);}
+  th{color:var(--gold);background:var(--card2);}
+  .pros{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .pro,.con{border-radius:12px;padding:16px 18px;font-size:.88rem;}
+  .pro{background:#10281c;border:1px solid #1d4a30;color:#bfe8d0;}
+  .con{background:#2a1515;border:1px solid #4a2323;color:#f0c4c4;}
+  .pro .t{color:var(--green);font-weight:700;margin-bottom:8px;font-size:.92rem;}
+  .con .t{color:var(--red);font-weight:700;margin-bottom:8px;font-size:.92rem;}
+  .note{background:#1d2432;border:1px dashed var(--border);border-radius:10px;padding:14px 18px;margin-top:26px;font-size:.87rem;color:var(--mut);}
+  .note b{color:var(--gold);}
+  footer{text-align:center;color:var(--mut);font-size:.78rem;margin-top:40px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="icon">📊🖥️</div>
+    <h1>Powerpoint Skill</h1>
+    <div class="sub">用 AI 自動建立、編輯、分析 PowerPoint 簡報的強大技能</div>
+    <div class="badges">
+      <span class="badge g">⭐ 227K★</span>
+      <span class="badge b">🔖 NousResearch</span>
+      <span class="badge p">📜 MIT 開源</span>
+      <span class="badge n">🐍 python-pptx</span>
+      <span class="badge n">🧊 離線執行</span>
+    </div>
+  </header>
+
+  <h2>🐾 這是什麼？</h2>
+  <div class="card">
+    讓「我」直接用 <b>python-pptx</b> 幫老大<b>建立 / 讀取 / 編輯 PowerPoint (.pptx)</b> 報告與簡報。
+    有 <b>5 個輔助腳本</b>，全離線執行、不一定要安裝 Microsoft Office。
+    從「一份 JSON 規格」就能自動生成整份投影片，也能抽文字、改內容、套公司範本、轉成圖片確認。
+  </div>
+
+  <h2>⚙️ 能幫老大做什麼（功能總覽）</h2>
+  <div class="grid">
+    <div class="feat"><div class="e">🆕</div><div class="t">建立簡報</div><div class="d">從 JSON 規格生成 .pptx，含標題、條列、表格、圖表、圖片、備忘稿</div></div>
+    <div class="feat"><div class="e">🔍</div><div class="t">讀取分析</div><div class="d">抽文字、備忘稿、表格、圖表資料、內嵌圖片出來看</div></div>
+    <div class="feat"><div class="e">✏️</div><div class="t">原地編輯</div><div class="d">換字、換圖、改圖表數據、複製/刪除/移動投影片、改背景</div></div>
+    <div class="feat"><div class="e">🏷️</div><div class="t">套用範本</div><div class="d">用公司品牌範本填值，自動套用母片字型與配色</div></div>
+    <div class="feat"><div class="e">🖼️</div><div class="t">渲染驗證</div><div class="d">把 pptx 轉成 PNG 圖片，逐頁確認視覺效果</div></div>
+  </div>
+
+  <h2>✨ 成品範例（示意圖）</h2>
+  <div class="showcase">
+    <div class="slide"><div class="body s1"><div><h3>鍾心管家 週報</h3><p>自動生成的標題投影片</p></div></div><div class="cap">標題頁：大標＋副標，深色漸層風格</div></div>
+    <div class="slide"><div class="body s2"><div>
+      <div class="item"><span class="dot" style="background:#5fd68a"></span>本週 Token 消耗：26.1k</div>
+      <div class="item"><span class="dot" style="background:#6ea8ff"></span>Fail2ban 攔截：0 個 IP</div>
+      <div class="item"><span class="dot" style="background:#f5c96b"></span>待修補漏洞：0 個</div>
+      <div class="item"><span class="dot" style="background:#b48bff"></span>系統狀態：安全 🟢</div>
+    </div></div><div class="cap">內容頁：條列重點，自動排版</div></div>
+    <div class="slide"><div class="body s3"><div>
+      <div style="font-size:.75rem;color:var(--mut)">資產配置圖表</div>
+      <div class="chart">
+        <div class="bar" style="height:60px"></div><div class="bar" style="height:88px"></div><div class="bar" style="height:44px"></div><div class="bar" style="height:72px"></div>
+      </div>
+    </div></div><div class="cap">圖表頁：自動插入長條圖/圓餅圖</div></div>
+  </div>
+  <div style="text-align:center;color:var(--mut);font-size:.8rem;margin-top:8px;">※ 以上為示意圖，實際由該 skill 產生 .pptx 後渲染而成</div>
+
+  <h2>💻 實際指令長這樣</h2>
+  <div class="code"><span class="cm"># 從 JSON 規格建立簡報</span>
+python3 scripts/pptx_create.py <span class="s">deck.json</span> <span class="s">out.pptx</span>
+
+<span class="cm"># 讀出全部內容／備忘稿</span>
+python3 scripts/pptx_read.py <span class="s">deck.pptx</span> --outline
+python3 scripts/pptx_read.py <span class="s">deck.pptx</span> --notes
+
+<span class="cm"># 換文字、換圖片</span>
+python3 scripts/pptx_edit.py <span class="s">deck.pptx</span> --replace-text <span class="s">"Old" "New"</span>
+python3 scripts/pptx_edit.py <span class="s">deck.pptx</span> --swap-image <span class="k">2</span> <span class="s">logo.png</span>
+
+<span class="cm"># 複製／刪除／移動投影片</span>
+python3 scripts/pptx_edit.py <span class="s">deck.pptx</span> --duplicate-slide <span class="k">2</span>
+python3 scripts/pptx_edit.py <span class="s">deck.pptx</span> --remove-slide <span class="k">3</span>
+
+<span class="cm"># 渲染成圖片確認</span>
+python3 scripts/pptx_render.py <span class="s">deck.pptx</span> --outdir ./render</div>
+
+  <h2>➗ 優缺點老實講</h2>
+  <div class="pros">
+    <div class="pro"><div class="t">✅ 優點</div>
+      • 離線、免裝 Office<br>
+      • 自動化大量編輯<br>
+      • 可套品牌範本<br>
+      • 可渲染成圖驗證<br>
+      • MIT 開源、安全
+    </div>
+    <div class="con"><div class="t">⚠️ 限制</div>
+      • 只支援 .pptx（.ppt 要先轉檔）<br>
+      • 圖表頁不能直接複製<br>
+      • 需裝 python-pptx＋LibreOffice<br>
+      • 視覺美感仍需人工把關
+    </div>
+  </div>
+
+  <h2>🎯 老大什麼時候用得到？</h2>
+  <div class="card" style="font-size:.93rem;">
+    • <b>工作簡報</b>：NPI 專案進度、機器視覺演算法說明<br>
+    • <b>退休規劃報告</b>：資產配置、進度追蹤簡報<br>
+    • <b>教育小孩</b>：把知識做成生動投影片<br>
+    • <b>整理別人給的 pptx</b>：快速抽出內容重點
+  </div>
+
+  <div class="note">
+    <b>🔒 狀態：</b>鍾心管家已檢視原始碼（MIT 授權，無惡意內容）。<b>尚未安裝</b>。屬第三方技能，如需安裝會先問過老大；python-pptx、LibreOffice 老大已說可於日後安裝。全部免費，不花半毛錢。
+  </div>
+
+  <footer>鍾心管家 🐶 · Powerpoint Skill 專屬實測報告 · 來源 GitHub NousResearch</footer>
+</div>
+</body>
+</html>
