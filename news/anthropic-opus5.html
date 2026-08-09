@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic Claude Opus 5：100 萬 token 上下文，SWE-bench 96% — 詳細報導</title>
+<style>
+  :root{--bg:#0b0f1a;--card:#141a2e;--text:#e8ecf7;--muted:#94a0c0;--accent:#6c8cff;--accent2:#ffb86c;--green:#4ade80;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;background:radial-gradient(1000px 500px at 20% -10%,#1b2450 0%,var(--bg) 55%);color:var(--text);line-height:1.9;padding:30px 16px 60px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  .back{color:var(--accent);text-decoration:none;font-size:.9rem;display:inline-block;margin-bottom:20px;}
+  .tag{display:inline-block;background:rgba(108,140,255,.15);color:var(--accent);padding:4px 12px;border-radius:999px;font-size:.75rem;font-weight:600;margin-bottom:14px;}
+  h1{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.4;margin-bottom:8px;color:#fff;}
+  .meta{color:var(--muted);font-size:.85rem;margin-bottom:24px;}
+  h2{font-size:1.3rem;margin:28px 0 12px;color:var(--accent2);}
+  p{margin-bottom:14px;color:var(--muted);}
+  p b{color:var(--text);}
+  .box{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 22px;margin:18px 0;}
+  .box h3{color:#fff;margin-bottom:8px;font-size:1.05rem;}
+  .box ul{margin-left:20px;color:var(--muted);}
+  .box li{margin-bottom:6px;}
+  .src{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem;}
+  .src h3{color:var(--accent2);margin-bottom:10px;font-size:1rem;}
+  .src a{color:var(--accent);display:block;margin-bottom:8px;word-break:break-all;text-decoration:none;}
+  .src a:hover{text-decoration:underline;}
+  .disclaimer{color:var(--muted);font-size:.8rem;margin-top:18px;opacity:.8;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../ai-news-2026.html">← 返回 AI 新聞週報</a>
+  <div><span class="tag">🧠 模型</span></div>
+  <h1>Anthropic 推出 Claude Opus 5：以半價逼近旗艦智慧</h1>
+  <div class="meta">2026-07-24 ・ 由鍾心管家整理・繁體中文</div>
+
+  <h2>事件核心</h2>
+  <p>Anthropic 於 <b>2026 年 7 月 24 日</b>正式發表旗艦級模型 <b>Claude Opus 5</b>。官方形容它是「一部深思熟慮且主動的模型」，在編碼與知識工作上衝上新的<b>狀態最佳（state-of-the-art）</b>，卻以逼近旗艦的智慧、只需<b>一半價格</b>登場，性價比是最大賣點。</p>
+
+  <h2>規格與評測亮點</h2>
+  <div class="box">
+    <h3>Claude Opus 5 重點數據</h3>
+    <ul>
+      <li><b>上下文窗口：</b>1,000,000 token（可一次處理整份劇本、整座訪談資料庫）</li>
+      <li><b>SWE-bench Verified：96.0%</b>（寫程式標竿，新里程碑）</li>
+      <li><b>ARC-AGI-3：30.2%</b>（刷新紀錄）</li>
+      <li><b>同步輸出：</b>最高 128,000 token</li>
+      <li><b>定價：</b>每百萬 token <b>$5 輸入 / $25 輸出</b>──與 Opus 4.8 相同，等於「同價、更高能力」</li>
+      <li>新增 <b>低 / 中 / 高 三級努力（effort）開關</b>，可針對單次請求在成本與能力間取捨</li>
+    </ul>
+  </div>
+
+  <h2>為什麼重要</h2>
+  <p>Opus 5 的意義在於打破了「旗艦 = 昂貴或不實用」的慣例。它用接近<i>Claude Fable 5</i> 的智慧、卻只要一半的價格，讓高強度的編碼代理與知識工作（法律文件分析、研究、策略規劃）得以大幅普及。</p>
+  <p>對開發團隊來說，100 萬 token 的上下文意味著可以<b>一次把整份大型文件或整個專案放到上下文</b>裡分析，不必來回分段；配合新的努力程度控制，團隊能在「便宜快速」與「深度推理」之間自由切換，讓預算控制更有彈性。</p>
+
+  <h2>對你的意義</h2>
+  <p>如果你常寫 C# / EmguCV、或想用 AI 輔助程式開發，這類「寫程式標竿」持續上升的模型，配上長上下文，代表 AI 能理解更大的程式碼庫、提出更完整的修改方案。以 Opus 5 的定價策略來看，<b>高品質程式輔助正在變得愈來愈划算</b>。</p>
+
+  <div class="src">
+    <h3>📎 來源連結</h3>
+    <a href="https://www.anthropic.com/news/claude-opus-5" target="_blank">Anthropic 官方：Introducing Claude Opus 5</a>
+    <a href="https://www.edenai.co/post/claude-opus-5-benchmarks-scores-pricing-routing" target="_blank">Eden AI：Claude Opus 5 Benchmarks, Scores, Pricing</a>
+    <a href="https://datanorth.ai/news/claude-opus-5-by-anthropic" target="_blank">DataNorth：Claude Opus 5 — benchmarks & pricing</a>
+    <a href="https://codersera.com/blog/claude-opus-5-launch-guide-2026/" target="_blank">Codersera：Claude Opus 5 Launch Guide 2026</a>
+    <a href="https://theairankings.com/anthropic/claude-opus-5/" target="_blank">The AIRankings：Claude Opus 5 Review</a>
+  </div>
+
+  <p class="disclaimer">＊以上為鍾心管家依據公開報導整理的繁體中文摘要，評測與價格以官方公告為準。</p>
+</div>
+</body>
+</html>
