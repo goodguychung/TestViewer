@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞總覽 ｜ 鍾心管家</title>
+<style>
+  :root{--bg:#0b0f1a;--card:#141a2e;--card2:#1a2138;--text:#e8ecf7;--muted:#94a0c0;--accent:#6c8cff;--accent2:#ffb86c;--green:#4ade80;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;background:radial-gradient(1100px 550px at 20% -10%,#1b2450 0%,var(--bg) 55%);color:var(--text);line-height:1.8;padding:30px 16px 80px;}
+  .wrap{max-width:900px;margin:0 auto;}
+  header.hero{text-align:center;padding:36px 20px 26px;}
+  .kicker{display:inline-block;background:rgba(108,140,255,.15);border:1px solid rgba(108,140,255,.4);color:var(--accent);padding:6px 16px;border-radius:999px;font-size:.82rem;letter-spacing:2px;margin-bottom:16px;font-weight:600;}
+  h1{font-size:clamp(2rem,6vw,3.2rem);background:linear-gradient(90deg,#fff,#ffb86c);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;font-weight:800;}
+  .sub{color:var(--muted);max-width:700px;margin:0 auto;}
+  .datebar{display:flex;justify-content:center;align-items:center;gap:14px;margin:28px 0 30px;flex-wrap:wrap;}
+  .datebar label{color:var(--muted);font-size:.9rem;}
+  .date-select{
+    background:var(--card);color:var(--text);border:1px solid rgba(108,140,255,.4);
+    padding:10px 18px;border-radius:12px;font-size:1rem;min-width:220px;
+  }
+  .archive{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:8px;}
+  .archive a{color:var(--accent);text-decoration:none;background:var(--card);border:1px solid rgba(108,140,255,.3);padding:6px 14px;border-radius:999px;font-size:.85rem;}
+  .archive a:hover{border-color:var(--accent);}
+
+  .latest-label{display:flex;align-items:center;gap:10px;margin:30px 0 16px;font-size:1.3rem;}
+  .latest-label .dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green);}
+  a.day-card{
+    display:flex;justify-content:space-between;align-items:center;
+    background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;padding:20px 24px;text-decoration:none;color:var(--text);
+    transition:transform .2s,border-color .2s;margin-bottom:14px;
+  }
+  a.day-card:hover{transform:translateY(-3px);border-color:rgba(108,140,255,.55);}
+  .day-card .date{font-size:1.4rem;font-weight:700;color:#fff;}
+  .day-card .desc{color:var(--muted);font-size:.9rem;margin-top:4px;}
+  .day-card .arrow{color:var(--accent);font-size:1.6rem;flex-shrink:0;}
+  .day-card .dot-now{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:8px;box-shadow:0 0 8px var(--green);}
+
+  .howto{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 22px;margin-top:28px;color:var(--muted);font-size:.92rem;}
+  .howto b{color:var(--accent2);}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:50px;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;}
+  @media(max-width:640px){body{padding:20px 12px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="kicker">🐶 鍾心管家・AI 新聞日報</span>
+    <h1>AI 新聞總覽</h1>
+    <p class="sub">每天清晨自動更新的 AI 新聞日報。從上方日期選單或下方列表，回顧每一天的新聞。</p>
+  </header>
+
+  <div class="datebar">
+    <label for="dsel">📅 歷史新聞：</label>
+    <select id="dsel" class="date-select" onchange="if(this.value)window.location=this.value">
+      <option value="">── 選擇日期 ──</option>
+      <option value="2026-08-10.html">2026-08-10（今日）</option>
+    </select>
+  </div>
+
+  <div class="archive">
+    <a href="2026-08-10.html">📄 2026-08-10</a>
+  </div>
+
+  <div class="latest-label"><span class="dot"></span>📌 最新一期</div>
+
+  <a class="day-card" href="2026-08-10.html">
+    <div>
+      <div class="date"><span class="dot-now"></span>2026-08-10（週一）</div>
+      <div class="desc">本日 9 則新聞：OpenAI 降價、Claude Opus 5、Gemini 3.6 Flash、Veo 3.1、Lyria 3.5、Seedream 5.0、AI 代理、運算園區、監管收緊</div>
+    </div>
+    <div class="arrow">›</div>
+  </a>
+
+  <div class="howto">
+    <b>💡 使用方式：</b>點任一日期即可閱讀當天完整新聞（每則標題可點開全文＋來源）。每天清晨我會自動新增當天存檔，歷史新聞會永久保留，隨時可回來翻閱。
+  </div>
+
+  <footer>
+    <p>AI 新聞日報・由鍾心管家製作與彙整</p>
+    <p style="margin-top:6px">🐶 天天更新・日日可回顧</p>
+  </footer>
+</div>
+</body>
+</html>
