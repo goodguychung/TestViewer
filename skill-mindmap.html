@@ -26,7 +26,7 @@ body{margin:0;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;backgrou
 </style>
 </head>
 <body>
-<div class="hdr">🧠 Skills 心智圖 — 56 個<span class="stamp">最後更新: 2026-08-12 11:43</span><span class="catno">📁 #01 AI與內容生成 · #02 個人與生活 · #03 新聞與內容 · #04 智慧家庭與物聯網 · #05 理財與投資 · #06 生產力與辦公 · #07 程式與開發 · #08 系統與維運 · #09 育兒與家庭 · #10 音樂與娛樂</span></div>
+<div class="hdr">🧠 Skills 心智圖 — 56 個<span class="stamp">最後更新: 2026-08-12 12:07</span><span class="catno">📁 #01 AI與內容生成 · #02 個人與生活 · #03 新聞與內容 · #04 智慧家庭與物聯網 · #05 理財與投資 · #06 生產力與辦公 · #07 程式與開發 · #08 系統與維運 · #09 育兒與家庭 · #10 音樂與娛樂</span></div>
 <div id="map"></div>
 <div class="legend">🖱 拖曳平移·滾輪縮放·點節點圓圈展開/收合 | ■=自訂 🔀=疑似重複</div>
 <div class="mobile">
@@ -49,9 +49,35 @@ try{
   const me = new MindElixir({el:'#map', direction:SIDE, theme:'dark2', editable:false, contextMenu:false, overflowHidden:true});
   me.init(DATA);
   // 等字體載入後 fit 到視窗
+  // 穩健 auto-fit: 多次嘗試,直到 scale 確實縮小到能 fit 視窗
   (function fit(){
-    setTimeout(()=>{ try{ me.scaleFit(); me.toCenter(); }catch(e){} }, 500);
-    if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(()=>{ try{ me.scaleFit(); me.toCenter(); }catch(e){} }); }
+    var tryCount=0;
+    function attempt(){
+      tryCount++;
+      try{
+        var cw=window.innerWidth, ch=window.innerHeight;
+        var nodesEl=me.nodes;
+        var tw=nodesEl.scrollWidth||nodesEl.offsetWidth, th=nodesEl.scrollHeight||nodesEl.offsetHeight;
+        if(tw<=0||th<=0){var r=nodesEl.getBoundingClientRect();tw=r.width;th=r.height;}
+        var pad=40;
+        var target=Math.min((cw-2*pad)/tw,(ch-2*pad)/th);
+        // 只在需要縮小或放大到合理範圍內時套用
+        if(target>0.03 && target<2 && Math.abs(target-me.scaleVal)>0.01){
+          me.scale(target,{clientX:cw/2,clientY:ch/2});
+          me.toCenter();
+        } else {
+          me.toCenter();
+        }
+        window.__lastFitScale=me.scaleVal;
+      }catch(e){}
+      // 若 scale 仍是 1(代表沒縮小)且次數未滿,繼續重試
+      if((!window.__lastFitScale||Math.abs(window.__lastFitScale-1)<0.01)&&tryCount<10){
+        setTimeout(attempt, 400);
+      }
+    }
+    setTimeout(attempt, 300);
+    if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(attempt); }
+    window.addEventListener('resize', function(){ setTimeout(attempt,300); });
   })();
   window.__me = me;
 }catch(e){
