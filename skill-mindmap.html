@@ -27,7 +27,7 @@ body{margin:0;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;backgrou
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-elixir@6.0.0-next.4/dist/MindElixir.css">
 </head>
 <body>
-<div class="hdr">🧠 Skills 心智圖 — 56 個<span class="stamp">最後更新: 2026-08-12 15:01</span><span class="catno">📁 #01 AI與內容生成 · #02 個人與生活 · #03 新聞與內容 · #04 智慧家庭與物聯網 · #05 理財與投資 · #06 生產力與辦公 · #07 程式與開發 · #08 系統與維運 · #09 育兒與家庭 · #10 音樂與娛樂</span></div>
+<div class="hdr">🧠 Skills 心智圖 — 56 個<span class="stamp">最後更新: 2026-08-12 15:06</span><span class="catno">📁 #01 AI與內容生成 · #02 個人與生活 · #03 新聞與內容 · #04 智慧家庭與物聯網 · #05 理財與投資 · #06 生產力與辦公 · #07 程式與開發 · #08 系統與維運 · #09 育兒與家庭 · #10 音樂與娛樂</span></div>
 <div id="map"></div>
 <div class="legend">🖱 拖曳平移·滾輪直接縮放·點節點圓圈展開/收合 | ■=自訂 🔀=疑似重複</div>
 <div class="mobile">
@@ -94,6 +94,27 @@ try{
     });
   })();
   
+
+  // 展開後把節點帶進可視範圍（只平移，不改縮放）
+  me.bus.addListener('expandNode', function(node) {
+    setTimeout(function() {
+      try {
+        var el = me.findEle ? me.findEle(node.id) : null;
+        if (!el) {
+          el = document.querySelector('.me-tpc.selected') || document.querySelector('.me-tpc');
+        }
+        if (el && typeof me.scrollIntoView === 'function') {
+          me.scrollIntoView(el);
+        } else if (el) {
+          var rect = el.getBoundingClientRect();
+          var dx = window.innerWidth / 2 - (rect.left + rect.width / 2);
+          var dy = window.innerHeight / 2 - (rect.top + rect.height / 2);
+          me.move(dx * 0.6, dy * 0.6, true);
+        }
+      } catch (e) {}
+    }, 60);
+  });
+
   window.__me = me;
 
 
