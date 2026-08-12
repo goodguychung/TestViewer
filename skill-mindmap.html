@@ -9,6 +9,7 @@ body{margin:0;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;backgrou
 .hdr{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:99;background:rgba(13,17,23,.92);padding:7px 18px;border-radius:20px;border:1px solid #30363d;font-size:13.5px;white-space:nowrap}
 .hdr .stamp{color:#8b949e;font-size:11px;margin-left:8px}
 .desktop{width:100vw;height:100vh}
+.desktop .markmap{width:100%;height:100%}
 .legend{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:99;background:rgba(13,17,23,.85);color:#8b949e;padding:5px 14px;border-radius:14px;border:1px solid #30363d;font-size:12px}
 .mobile{display:none;padding:70px 14px 40px;max-width:800px;margin:0 auto}
 .mobile details{background:#161b22;border:1px solid #30363d;border-radius:10px;margin-bottom:8px;overflow:hidden}
@@ -28,7 +29,255 @@ body{margin:0;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;backgrou
 </head>
 <body>
 <div class="hdr">🧠 Skills 心智圖 — 56 個<span class="stamp">最後更新: 2026-08-12</span></div>
-<div class="desktop"><svg id="mindmap"></svg></div>
+<div class="desktop"><div class="markmap">
+<script type="text/template">
+# 🧠 鍾心管家 Skills 心智圖
+## 🎯 全部技能（56）· 區網共用資料夾: \\192.168.50.194\openclaw\skills-backup
+## 📂 AI與內容生成（7）
+- [•] **gemini** — ✨ Gemini CLI 一次性提問/摘要/生成/skill/hooks/管理
+  - ⚡ 觸發: gemini,提問,生成文字
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\AI與內容生成\gemini`
+- [•] **openai-whisper** 🔀疑似重複 — 🎙️ Whisper 本地語音轉文字（免API key）
+  - ⚡ 觸發: whisper,語音轉文字,逐字稿,本地
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **openai-whisper-api** 🔀疑似重複 — 🎙️ OpenAI 語音轉文字 API（gpt-4o-transcribe）
+  - ⚡ 觸發: whisper api,語音轉文字,轉錄,openai
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **sag** 🔀疑似重複 — 🗣️ ElevenLabs 語音合成（TTS）
+  - ⚡ 觸發: 語音合成,tts,elevenlabs,念給我聽,說故事
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **sherpa-onnx-tts** 🔀疑似重複 — 🗣️ sherpa-onnx 本地語音合成（離線免雲）
+  - ⚡ 觸發: 本地tts,語音合成,離線,tts
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **summarize** — 📝 摘要/轉錄 URL/影片/播客/文章/教學
+  - ⚡ 觸發: 摘要,總結,轉錄,影片,播客,文章整理
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\AI與內容生成\summarize`
+- [•] **video-frames** — 🎬 ffmpeg 影片抽幀/剪輯片段
+  - ⚡ 觸發: video-frames,影片抽幀,影片剪輯,ffmpeg
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\AI與內容生成\video-frames`
+## 📂 個人與生活（11）
+- [■自訂] **my-first-skill** — 🐶 第一個客製化技能範例（展示用）
+  - ⚡ 觸發: 範例,展示
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\個人與生活\my-first-skill`
+- [•] **apple-notes** — 🍎 Apple Notes 筆記讀寫管理
+  - ⚡ 觸發: apple notes,備忘錄,筆記
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **apple-reminders** 🔀疑似重複 — ✅ Apple Reminders 待辦管理
+  - ⚡ 觸發: reminders,待辦,提醒事項
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **bear-notes** — 🐻 Bear 筆記管理
+  - ⚡ 觸發: bear,筆記
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **gifgrep** — 🎞️ GIF 搜尋/下載/靜態圖
+  - ⚡ 觸發: gif,梗圖找尋,下載gif
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **goplaces** — 📍 Google Places 地點/商家查詢
+  - ⚡ 觸發: google places,地點,商家,餐廳搜尋
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **meme-maker** — 😂 梗圖模板搜尋/格式/生成
+  - ⚡ 觸發: 梗圖,meme,迷因,圖片梗
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\AI與內容生成\meme-maker`
+- [•] **ordercli** — 🍜 Foodora 外送訂單/狀態查詢
+  - ⚡ 觸發: foodora,外送,訂單,熊貓外送
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **things-mac** 🔀疑似重複 — ✅ Things 3 待辦管理（inbox/今天/計畫）
+  - ⚡ 觸發: things 3,待辦,todo,任務管理
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\things-mac`
+- [•] **weather** — 🌤️ 天氣查詢/預報/降雨/旅遊規劃
+  - ⚡ 觸發: 天氣,氣象,降雨,預報,weather
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\weather`
+- [•] **xurl** — 🐦 X(Twitter) 發文/讀取/回覆/DM/媒體
+  - ⚡ 觸發: x,twitter,發文,推特,社群
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\xurl`
+## 📂 新聞與內容（2）
+- [■自訂] **news-daily** — 📅 每日AI新聞日報網頁製作+發布（多管道抓取/配比/多日期/GitHub Pages）
+  - ⚡ 觸發: 今天新聞,新聞日報,更新新聞網頁,每日新聞
+  - 📅 更新: 2026-08-10
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\新聞與內容\news-daily`
+- [•] **blogwatcher** — 📡 Blog/RSS 訂閱監看更新
+  - ⚡ 觸發: blog,rss,訂閱,文章更新
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+## 📂 智慧家庭與物聯網（3）
+- [•] **camsnap** — 📷 RTSP/ONVIF 相機擷取畫面/片段
+  - ⚡ 觸發: 相機,監視器,rtsp,onvif,擷取,畫面
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\智慧家庭與物聯網\camsnap`
+- [•] **eightctl** — 😴 Eight Sleep 智慧床墊控制
+  - ⚡ 觸發: eight sleep,床墊,睡眠,恆溫床
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **openhue** — 💡 Philips Hue 燈光/場景控制
+  - ⚡ 觸發: hue,燈光,智慧燈,philips hue
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\智慧家庭與物聯網\openhue`
+## 📂 理財與投資（1）
+- [■自訂] **eps-estimator** — 💰 EPS推算與財報分析（不限特定股票）：依正確財報公式估單季EPS，含退稅/業外/稅率/加權股本
+  - ⚡ 觸發: EPS,EPS預估,財報分析,獲利,財報
+  - 📅 更新: 2026-08-10
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\理財與投資\eps-estimator`
+## 📂 生產力與辦公（8）
+- [•] **1password** — 🔐 1Password CLI 登入/整合/密碼管理
+  - ⚡ 觸發: 1password,密碼,憑證
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\1password`
+- [•] **diagram-maker** — 🧭 SVG/HTML/Excalidraw 圖表製作
+  - ⚡ 觸發: 圖表,心智圖,流程圖,架構圖,diagram
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\AI與內容生成\diagram-maker`
+- [•] **gog** — 📧 Google Workspace：Gmail/日曆/雲端硬碟/聯絡人/試算表
+  - ⚡ 觸發: gmail,google,日曆,雲端硬碟,試算表,google workspace
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **himalaya** — ✉️ Himalaya CLI 郵件（IMAP/SMTP）讀寫搜尋
+  - ⚡ 觸發: himalaya,email,郵件,imap,smtp
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\himalaya`
+- [•] **nano-pdf** — 📄 自然語言指令編輯PDF
+  - ⚡ 觸發: pdf,編輯pdf,nano-pdf
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **notion** — 📓 Notion 頁面/資料庫/檔案/API
+  - ⚡ 觸發: notion,資料庫,頁面
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\notion`
+- [•] **obsidian** — 📓 Obsidian vault 讀寫/搜尋
+  - ⚡ 觸發: obsidian,vault,筆記庫
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\obsidian`
+- [•] **trello** — 📋 Trello 看板/清單/卡片 REST API
+  - ⚡ 觸發: trello,看板,卡片,專案管理
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\trello`
+## 📂 程式與開發（12）
+- [•] **clawhub** — 🧩 搜尋/安裝/發布 ClawHub 技能
+  - ⚡ 觸發: clawhub,安裝技能,搜尋技能,發布技能
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\clawhub`
+- [•] **coding-agent** — 🤖 委派編碼給 Codex/Claude Code/OpenCode 背景執行
+  - ⚡ 觸發: coding agent,委派,codex,寫程式
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\coding-agent`
+- [•] **gh-issues** 🔀疑似重複 — 🐙 GitHub issues 抓取+背景修復agent
+  - ⚡ 觸發: github issue,issue,修復
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\gh-issues`
+- [•] **github** 🔀疑似重複 — 🐙 GitHub CLI：issue/PR/CI/評論/release
+  - ⚡ 觸發: github,git,pr,issue,release
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\生產力與辦公\github`
+- [•] **mcporter** — 🔌 MCP 伺服器清單/設定/認證/呼叫
+  - ⚡ 觸發: mcp,伺服器,mcporter
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **node-inspect-debugger** 🔀疑似重複 — 🐛 Node.js 除錯：inspect/breakpoint/CDP/heap/CPU
+  - ⚡ 觸發: node除錯,debug,斷點,inspect
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\node-inspect-debugger`
+- [•] **oracle** — 🔍 Oracle 第二模型審查/除錯/重構/設計
+  - ⚡ 觸發: oracle,第二模型,審查,重構,除錯
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **python-debugpy** 🔀疑似重複 — 🐍 Python 除錯：pdb/breakpoint/post-mortem/debugpy
+  - ⚡ 觸發: python除錯,debug,pdb,breakpoint
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\python-debugpy`
+- [•] **skill-creator** — 🧩 建立/編輯/稽核/優化/重構 AgentSkills & SKILL.md
+  - ⚡ 觸發: skill-creator,建立skill,編輯skill,稽核skill
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\skill-creator`
+- [•] **spike** — 🔬 拋棄式原型驗證可行性/比較方案
+  - ⚡ 觸發: spike,原型,驗證,可行性,實驗
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\spike`
+- [•] **taskflow** — 📋 多步驟背景任務協調（owner/state/waits/childtasks）
+  - ⚡ 觸發: taskflow,背景任務,多步驟,協調
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\程式與開發\taskflow`
+- [•] **taskflow-inbox-triage** — 📥 TaskFlow 收件匣分流/意圖路由/等待回覆範例
+  - ⚡ 觸發: taskflow inbox,收件匣,分流,範例
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+## 📂 系統與維運（7）
+- [■自訂] **openclaw-ops** 🔀疑似重複 — 🛠️ OpenClaw自身部署/健康檢查/故障排除知識庫（gateway/cron/LINE診斷）
+  - ⚡ 觸發: 你沒回應,當機,查一下自己,幫我修,gateway,cron,LINE
+  - 📅 更新: 2026-08-11
+  - 📁 NAS: 未備份
+- [•] **healthcheck** — 🛡️ 主機安全稽核/強化：SSH/防火牆/更新/備份/磁碟加密
+  - ⚡ 觸發: 安全稽核,主機安全,防火牆,ssh,healthcheck
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\系統與維運\healthcheck`
+- [•] **model-usage** — 📊 CodexBar 模型成本log彙總（Codex/Claude）
+  - ⚡ 觸發: 模型成本,用量,額度,codexbar
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **node-connect** 🔀疑似重複 — 📱 OpenClaw 手機/桌機 node 配對/QR/路由除錯
+  - ⚡ 觸發: node,配對,手機,連不上,qr
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\系統與維運\node-connect`
+- [•] **peekaboo** — 🖥️ macOS UI 擷取/自動化
+  - ⚡ 觸發: macos,ui,擷取,自動化,peekaboo
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **session-logs** — 📜 自身 session log 搜尋/分析（先前對話）
+  - ⚡ 觸發: session log,對話紀錄,先前對話,分析log
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **tmux** — 🖥️ tmux 互動CLI 控制（list/capture/sendkeys）
+  - ⚡ 觸發: tmux,分頁,終端,背景cli
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\系統與維運\tmux`
+## 📂 育兒與家庭（1）
+- [■自訂] **parenting-benefits** — 👶 育兒福利/津貼/育嬰假查詢：生育給付、獎勵金、育嬰津貼、每月津貼
+  - ⚡ 觸發: 育兒補助,生育給付,育嬰津貼,育嬰假,育兒津貼,福利
+  - 📅 更新: 2026-08-10
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\育兒與家庭\parenting-benefits`
+## 📂 音樂與娛樂（4）
+- [•] **blucli** 🔀疑似重複 — 🎵 BluOS 播放器控制（發現/播放/群組/音量）
+  - ⚡ 觸發: bluos,blue sound,播放,喇叭
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: 未備份
+- [•] **songsee** — 🎵 音訊頻譜圖/特徵面板視覺化
+  - ⚡ 觸發: songsee,頻譜,音訊分析,波形
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\音樂與娛樂\songsee`
+- [•] **sonoscli** 🔀疑似重複 — 🔊 Sonos 喇叭控制（發現/播放/音量/群組）
+  - ⚡ 觸發: sonos,喇叭,播放,音響
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\音樂與娛樂\sonoscli`
+- [•] **spotify-player** — 🎧 終端 Spotify 播放/搜尋
+  - ⚡ 觸發: spotify,音樂,播放
+  - 📅 更新: 2026-08-08
+  - 📁 NAS: `\\192.168.50.194\openclaw\skills-backup\音樂與娛樂\spotify-player`
+
+## 🔀 建議合併候選
+- **openclaw-ops** ↔ **node-connect** — 重疊: law,pen (score 2)
+- **apple-reminders** ↔ **things-mac** — 重疊: 待辦,待辦管理 (score 2)
+- **blucli** ↔ **sonoscli** — 重疊: 喇叭,播放,發現,群組,音量 (score 5)
+- **gh-issues** ↔ **github** — 重疊: github,issue (score 2)
+- **node-inspect-debugger** ↔ **python-debugpy** — 重疊: breakpoint,debug,除錯 (score 3)
+- **openai-whisper** ↔ **openai-whisper-api** — 重疊: whisper,語音轉文字 (score 2)
+- **sag** ↔ **sherpa-onnx-tts** — 重疊: tts,語音合成 (score 2)
+</script>
+</div></div>
 <div class="mobile">
 <details open><summary>AI與內容生成<span class="cnt">7</span></summary><ul><li><span>•</span> <b>gemini</b><div class="dd">✨ Gemini CLI 一次性提問/摘要/生成/skill/hooks/管理</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\AI與內容生成\gemini</div></li><li><span>•</span> <span class="dup">🔀</span> <b>openai-whisper</b><div class="dd">🎙️ Whisper 本地語音轉文字（免API key）</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>openai-whisper-api</b><div class="dd">🎙️ OpenAI 語音轉文字 API（gpt-4o-transcribe）</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>sag</b><div class="dd">🗣️ ElevenLabs 語音合成（TTS）</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>sherpa-onnx-tts</b><div class="dd">🗣️ sherpa-onnx 本地語音合成（離線免雲）</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <b>summarize</b><div class="dd">📝 摘要/轉錄 URL/影片/播客/文章/教學</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\AI與內容生成\summarize</div></li><li><span>•</span> <b>video-frames</b><div class="dd">🎬 ffmpeg 影片抽幀/剪輯片段</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\AI與內容生成\video-frames</div></li></ul></details>
 <details><summary>個人與生活<span class="cnt">11</span></summary><ul><li><span style="color:#e3b341">■</span> <b>my-first-skill</b><span class="custom-badge">自訂</span><div class="dd">🐶 第一個客製化技能範例（展示用）</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\個人與生活\my-first-skill</div></li><li><span>•</span> <b>apple-notes</b><div class="dd">🍎 Apple Notes 筆記讀寫管理</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>apple-reminders</b><div class="dd">✅ Apple Reminders 待辦管理</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <b>bear-notes</b><div class="dd">🐻 Bear 筆記管理</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <b>gifgrep</b><div class="dd">🎞️ GIF 搜尋/下載/靜態圖</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <b>goplaces</b><div class="dd">📍 Google Places 地點/商家查詢</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <b>meme-maker</b><div class="dd">😂 梗圖模板搜尋/格式/生成</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\AI與內容生成\meme-maker</div></li><li><span>•</span> <b>ordercli</b><div class="dd">🍜 Foodora 外送訂單/狀態查詢</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>things-mac</b><div class="dd">✅ Things 3 待辦管理（inbox/今天/計畫）</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\生產力與辦公\things-mac</div></li><li><span>•</span> <b>weather</b><div class="dd">🌤️ 天氣查詢/預報/降雨/旅遊規劃</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\生產力與辦公\weather</div></li><li><span>•</span> <b>xurl</b><div class="dd">🐦 X(Twitter) 發文/讀取/回覆/DM/媒體</div><div class="nas">📁 \\192.168.50.194\openclaw\skills-backup\生產力與辦公\xurl</div></li></ul></details>
@@ -43,33 +292,7 @@ body{margin:0;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;backgrou
 <details open><summary>建議合併候選<span class="cnt">7</span></summary><ul><li><span>•</span> <span class="dup">🔀</span> <b>openclaw-ops ↔ node-connect</b><div class="dd">重疊:law,pen</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>apple-reminders ↔ things-mac</b><div class="dd">重疊:待辦,待辦管理</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>blucli ↔ sonoscli</b><div class="dd">重疊:喇叭,播放,發現,群組,音量</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>gh-issues ↔ github</b><div class="dd">重疊:github,issue</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>node-inspect-debugger ↔ python-debugpy</b><div class="dd">重疊:breakpoint,debug,除錯</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>openai-whisper ↔ openai-whisper-api</b><div class="dd">重疊:whisper,語音轉文字</div><div class="nas off">📁 未備份</div></li><li><span>•</span> <span class="dup">🔀</span> <b>sag ↔ sherpa-onnx-tts</b><div class="dd">重疊:tts,語音合成</div><div class="nas off">📁 未備份</div></li></ul></details>
 <div class="gen">📁 NAS: \\192.168.50.194\openclaw\skills-backup · 最後更新 2026-08-12</div>
 </div>
-<div class="legend">🖱 滾輪縮放 0.25x–4x · 拖曳平移 · 點 +/− 展開 | ■自訂 🔀疑似重複</div>
-<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.18/dist/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18/dist/browser/index.js"></script>
-<script>
-(function(){
-  const md = "# 🧠 鍾心管家 Skills 心智圖\n## 🎯 全部技能（56）· 區網共用資料夾: \\\\192.168.50.194\\openclaw\\skills-backup\n## 📂 AI與內容生成（7）\n- [•] **gemini** — ✨ Gemini CLI 一次性提問/摘要/生成/skill/hooks/管理\n  - ⚡ 觸發: gemini,提問,生成文字\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\AI與內容生成\\gemini`\n- [•] **openai-whisper** 🔀疑似重複 — 🎙️ Whisper 本地語音轉文字（免API key）\n  - ⚡ 觸發: whisper,語音轉文字,逐字稿,本地\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **openai-whisper-api** 🔀疑似重複 — 🎙️ OpenAI 語音轉文字 API（gpt-4o-transcribe）\n  - ⚡ 觸發: whisper api,語音轉文字,轉錄,openai\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **sag** 🔀疑似重複 — 🗣️ ElevenLabs 語音合成（TTS）\n  - ⚡ 觸發: 語音合成,tts,elevenlabs,念給我聽,說故事\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **sherpa-onnx-tts** 🔀疑似重複 — 🗣️ sherpa-onnx 本地語音合成（離線免雲）\n  - ⚡ 觸發: 本地tts,語音合成,離線,tts\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **summarize** — 📝 摘要/轉錄 URL/影片/播客/文章/教學\n  - ⚡ 觸發: 摘要,總結,轉錄,影片,播客,文章整理\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\AI與內容生成\\summarize`\n- [•] **video-frames** — 🎬 ffmpeg 影片抽幀/剪輯片段\n  - ⚡ 觸發: video-frames,影片抽幀,影片剪輯,ffmpeg\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\AI與內容生成\\video-frames`\n## 📂 個人與生活（11）\n- [■自訂] **my-first-skill** — 🐶 第一個客製化技能範例（展示用）\n  - ⚡ 觸發: 範例,展示\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\個人與生活\\my-first-skill`\n- [•] **apple-notes** — 🍎 Apple Notes 筆記讀寫管理\n  - ⚡ 觸發: apple notes,備忘錄,筆記\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **apple-reminders** 🔀疑似重複 — ✅ Apple Reminders 待辦管理\n  - ⚡ 觸發: reminders,待辦,提醒事項\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **bear-notes** — 🐻 Bear 筆記管理\n  - ⚡ 觸發: bear,筆記\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **gifgrep** — 🎞️ GIF 搜尋/下載/靜態圖\n  - ⚡ 觸發: gif,梗圖找尋,下載gif\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **goplaces** — 📍 Google Places 地點/商家查詢\n  - ⚡ 觸發: google places,地點,商家,餐廳搜尋\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **meme-maker** — 😂 梗圖模板搜尋/格式/生成\n  - ⚡ 觸發: 梗圖,meme,迷因,圖片梗\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\AI與內容生成\\meme-maker`\n- [•] **ordercli** — 🍜 Foodora 外送訂單/狀態查詢\n  - ⚡ 觸發: foodora,外送,訂單,熊貓外送\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **things-mac** 🔀疑似重複 — ✅ Things 3 待辦管理（inbox/今天/計畫）\n  - ⚡ 觸發: things 3,待辦,todo,任務管理\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\things-mac`\n- [•] **weather** — 🌤️ 天氣查詢/預報/降雨/旅遊規劃\n  - ⚡ 觸發: 天氣,氣象,降雨,預報,weather\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\weather`\n- [•] **xurl** — 🐦 X(Twitter) 發文/讀取/回覆/DM/媒體\n  - ⚡ 觸發: x,twitter,發文,推特,社群\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\xurl`\n## 📂 新聞與內容（2）\n- [■自訂] **news-daily** — 📅 每日AI新聞日報網頁製作+發布（多管道抓取/配比/多日期/GitHub Pages）\n  - ⚡ 觸發: 今天新聞,新聞日報,更新新聞網頁,每日新聞\n  - 📅 更新: 2026-08-10\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\新聞與內容\\news-daily`\n- [•] **blogwatcher** — 📡 Blog/RSS 訂閱監看更新\n  - ⚡ 觸發: blog,rss,訂閱,文章更新\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n## 📂 智慧家庭與物聯網（3）\n- [•] **camsnap** — 📷 RTSP/ONVIF 相機擷取畫面/片段\n  - ⚡ 觸發: 相機,監視器,rtsp,onvif,擷取,畫面\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\智慧家庭與物聯網\\camsnap`\n- [•] **eightctl** — 😴 Eight Sleep 智慧床墊控制\n  - ⚡ 觸發: eight sleep,床墊,睡眠,恆溫床\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **openhue** — 💡 Philips Hue 燈光/場景控制\n  - ⚡ 觸發: hue,燈光,智慧燈,philips hue\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\智慧家庭與物聯網\\openhue`\n## 📂 理財與投資（1）\n- [■自訂] **eps-estimator** — 💰 EPS推算與財報分析（不限特定股票）：依正確財報公式估單季EPS，含退稅/業外/稅率/加權股本\n  - ⚡ 觸發: EPS,EPS預估,財報分析,獲利,財報\n  - 📅 更新: 2026-08-10\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\理財與投資\\eps-estimator`\n## 📂 生產力與辦公（8）\n- [•] **1password** — 🔐 1Password CLI 登入/整合/密碼管理\n  - ⚡ 觸發: 1password,密碼,憑證\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\1password`\n- [•] **diagram-maker** — 🧭 SVG/HTML/Excalidraw 圖表製作\n  - ⚡ 觸發: 圖表,心智圖,流程圖,架構圖,diagram\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\AI與內容生成\\diagram-maker`\n- [•] **gog** — 📧 Google Workspace：Gmail/日曆/雲端硬碟/聯絡人/試算表\n  - ⚡ 觸發: gmail,google,日曆,雲端硬碟,試算表,google workspace\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **himalaya** — ✉️ Himalaya CLI 郵件（IMAP/SMTP）讀寫搜尋\n  - ⚡ 觸發: himalaya,email,郵件,imap,smtp\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\himalaya`\n- [•] **nano-pdf** — 📄 自然語言指令編輯PDF\n  - ⚡ 觸發: pdf,編輯pdf,nano-pdf\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **notion** — 📓 Notion 頁面/資料庫/檔案/API\n  - ⚡ 觸發: notion,資料庫,頁面\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\notion`\n- [•] **obsidian** — 📓 Obsidian vault 讀寫/搜尋\n  - ⚡ 觸發: obsidian,vault,筆記庫\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\obsidian`\n- [•] **trello** — 📋 Trello 看板/清單/卡片 REST API\n  - ⚡ 觸發: trello,看板,卡片,專案管理\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\trello`\n## 📂 程式與開發（12）\n- [•] **clawhub** — 🧩 搜尋/安裝/發布 ClawHub 技能\n  - ⚡ 觸發: clawhub,安裝技能,搜尋技能,發布技能\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\clawhub`\n- [•] **coding-agent** — 🤖 委派編碼給 Codex/Claude Code/OpenCode 背景執行\n  - ⚡ 觸發: coding agent,委派,codex,寫程式\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\coding-agent`\n- [•] **gh-issues** 🔀疑似重複 — 🐙 GitHub issues 抓取+背景修復agent\n  - ⚡ 觸發: github issue,issue,修復\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\gh-issues`\n- [•] **github** 🔀疑似重複 — 🐙 GitHub CLI：issue/PR/CI/評論/release\n  - ⚡ 觸發: github,git,pr,issue,release\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\生產力與辦公\\github`\n- [•] **mcporter** — 🔌 MCP 伺服器清單/設定/認證/呼叫\n  - ⚡ 觸發: mcp,伺服器,mcporter\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **node-inspect-debugger** 🔀疑似重複 — 🐛 Node.js 除錯：inspect/breakpoint/CDP/heap/CPU\n  - ⚡ 觸發: node除錯,debug,斷點,inspect\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\node-inspect-debugger`\n- [•] **oracle** — 🔍 Oracle 第二模型審查/除錯/重構/設計\n  - ⚡ 觸發: oracle,第二模型,審查,重構,除錯\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **python-debugpy** 🔀疑似重複 — 🐍 Python 除錯：pdb/breakpoint/post-mortem/debugpy\n  - ⚡ 觸發: python除錯,debug,pdb,breakpoint\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\python-debugpy`\n- [•] **skill-creator** — 🧩 建立/編輯/稽核/優化/重構 AgentSkills & SKILL.md\n  - ⚡ 觸發: skill-creator,建立skill,編輯skill,稽核skill\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\skill-creator`\n- [•] **spike** — 🔬 拋棄式原型驗證可行性/比較方案\n  - ⚡ 觸發: spike,原型,驗證,可行性,實驗\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\spike`\n- [•] **taskflow** — 📋 多步驟背景任務協調（owner/state/waits/childtasks）\n  - ⚡ 觸發: taskflow,背景任務,多步驟,協調\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\程式與開發\\taskflow`\n- [•] **taskflow-inbox-triage** — 📥 TaskFlow 收件匣分流/意圖路由/等待回覆範例\n  - ⚡ 觸發: taskflow inbox,收件匣,分流,範例\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n## 📂 系統與維運（7）\n- [■自訂] **openclaw-ops** 🔀疑似重複 — 🛠️ OpenClaw自身部署/健康檢查/故障排除知識庫（gateway/cron/LINE診斷）\n  - ⚡ 觸發: 你沒回應,當機,查一下自己,幫我修,gateway,cron,LINE\n  - 📅 更新: 2026-08-11\n  - 📁 NAS: 未備份\n- [•] **healthcheck** — 🛡️ 主機安全稽核/強化：SSH/防火牆/更新/備份/磁碟加密\n  - ⚡ 觸發: 安全稽核,主機安全,防火牆,ssh,healthcheck\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\系統與維運\\healthcheck`\n- [•] **model-usage** — 📊 CodexBar 模型成本log彙總（Codex/Claude）\n  - ⚡ 觸發: 模型成本,用量,額度,codexbar\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **node-connect** 🔀疑似重複 — 📱 OpenClaw 手機/桌機 node 配對/QR/路由除錯\n  - ⚡ 觸發: node,配對,手機,連不上,qr\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\系統與維運\\node-connect`\n- [•] **peekaboo** — 🖥️ macOS UI 擷取/自動化\n  - ⚡ 觸發: macos,ui,擷取,自動化,peekaboo\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **session-logs** — 📜 自身 session log 搜尋/分析（先前對話）\n  - ⚡ 觸發: session log,對話紀錄,先前對話,分析log\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **tmux** — 🖥️ tmux 互動CLI 控制（list/capture/sendkeys）\n  - ⚡ 觸發: tmux,分頁,終端,背景cli\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\系統與維運\\tmux`\n## 📂 育兒與家庭（1）\n- [■自訂] **parenting-benefits** — 👶 育兒福利/津貼/育嬰假查詢：生育給付、獎勵金、育嬰津貼、每月津貼\n  - ⚡ 觸發: 育兒補助,生育給付,育嬰津貼,育嬰假,育兒津貼,福利\n  - 📅 更新: 2026-08-10\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\育兒與家庭\\parenting-benefits`\n## 📂 音樂與娛樂（4）\n- [•] **blucli** 🔀疑似重複 — 🎵 BluOS 播放器控制（發現/播放/群組/音量）\n  - ⚡ 觸發: bluos,blue sound,播放,喇叭\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: 未備份\n- [•] **songsee** — 🎵 音訊頻譜圖/特徵面板視覺化\n  - ⚡ 觸發: songsee,頻譜,音訊分析,波形\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\音樂與娛樂\\songsee`\n- [•] **sonoscli** 🔀疑似重複 — 🔊 Sonos 喇叭控制（發現/播放/音量/群組）\n  - ⚡ 觸發: sonos,喇叭,播放,音響\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\音樂與娛樂\\sonoscli`\n- [•] **spotify-player** — 🎧 終端 Spotify 播放/搜尋\n  - ⚡ 觸發: spotify,音樂,播放\n  - 📅 更新: 2026-08-08\n  - 📁 NAS: `\\\\192.168.50.194\\openclaw\\skills-backup\\音樂與娛樂\\spotify-player`\n\n## 🔀 建議合併候選\n- **openclaw-ops** ↔ **node-connect** — 重疊: law,pen (score 2)\n- **apple-reminders** ↔ **things-mac** — 重疊: 待辦,待辦管理 (score 2)\n- **blucli** ↔ **sonoscli** — 重疊: 喇叭,播放,發現,群組,音量 (score 5)\n- **gh-issues** ↔ **github** — 重疊: github,issue (score 2)\n- **node-inspect-debugger** ↔ **python-debugpy** — 重疊: breakpoint,debug,除錯 (score 3)\n- **openai-whisper** ↔ **openai-whisper-api** — 重疊: whisper,語音轉文字 (score 2)\n- **sag** ↔ **sherpa-onnx-tts** — 重疊: tts,語音合成 (score 2)";
-  try{
-    const { Transformer } = window.markmap;
-    const { Markmap } = window.markmap;
-    const root = new Transformer().transform(md).root;
-    const mm = Markmap.create('#mindmap', {
-      autoFit: true,
-      initialExpandLevel: 3,
-      duration: 200,
-      fitRatio: 0.95,
-    }, root);
-    // 鎖定縮放範圍,避免縮到最小或放到過大
-    const svg = document.querySelector('#mindmap');
-    if(svg && svg.__zoom){
-      svg.__zoom.scaleExtent([0.25, 4]);
-    } else if(mm && mm.view && mm.view._zoom){
-      mm.view._zoom.scaleExtent([0.25, 4]);
-    }
-  }catch(e){
-    document.querySelector('.desktop').innerHTML = '<div style="color:#f85149;padding:40px;text-align:center">渲染失敗: '+e.message+'</div>';
-  }
-})();
-</script>
+<div class="legend">🖱 滾輪縮放·拖曳平移·點 +/− 展開 | ■自訂 🔀疑似重複</div>
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18"></script>
 </body>
 </html>
