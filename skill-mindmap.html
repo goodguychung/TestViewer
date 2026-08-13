@@ -173,6 +173,7 @@ Docker 反偵測瀏覽器自動化（Camoufox+OS層輸
 📁 sonoscli","expanded":false},{"id":"nspotify-player","topic":"S56 spotify-player
 🎧 終端 Spotify 播放/搜尋
 📁 spotify-player","expanded":false}]}]}};
+(async function(){
 try{
   const me = new MindElixir({
     el:'#map', direction:SIDE, theme:DARK_THEME, editable:false, contextMenu:false, overflowHidden:false,
@@ -224,6 +225,8 @@ try{
       setTimeout(function(){ if(!settled) doFit(true); },300);
     });
   })();
+  }catch(e){console.error('mindmap init error', e);}
+})();
   
 
 
