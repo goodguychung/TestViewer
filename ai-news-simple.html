@@ -17,7 +17,7 @@
 .daycount{color:#8b949e;font-size:.85rem;margin-top:8px}
 .day{display:none}
 .day.active{display:block}
-</style></head><body><div class="hero"><h1>🤖 AI 新聞日報</h1><div class="date">最後更新: 2026-08-16 16:05｜全球多管道・每日更新</div>
+</style></head><body><div class="hero"><h1>🤖 AI 新聞日報</h1><div class="date">最後更新: 2026-08-16 16:15｜全球多管道・每日更新</div>
 <div class="datesel">
 <button class="navbtn" onclick="prevDay()">◀ 較早</button>
 <select id="selYear" onchange="fillMonth()"></select>
@@ -258,7 +258,7 @@
 </div>
 </div>
 </div>
-<div class="footer">由 鍾心管家 🐶 為 老大 製作｜最後更新: 2026-08-16 16:05｜僅整理新聞，無投資建議</div>
+<div class="footer">由 鍾心管家 🐶 為 老大 製作｜最後更新: 2026-08-16 16:15｜僅整理新聞，無投資建議</div>
 <script>
 const DAYLIST=["20260810","20260811","20260812","20260813","20260814","20260815","20260816"];
 let curDay="20260816";
@@ -271,6 +271,7 @@ function setDay(k){
   document.getElementById('selMonth').value=k.slice(0,6);
   document.getElementById('selDay').value=k;
   document.getElementById('totalDays').textContent=DAYLIST.length;
+  fillSel();
 }
 function fillYear(){
   var b=document.getElementById('selYear');b.innerHTML='';
