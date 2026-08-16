@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram id="aoi-flow" name="AOI 檢測流程">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- 起點 -->
+        <mxCell id="start" value="開始：產品進料" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- 影像擷取 -->
+        <mxCell id="capture" value="影像擷取&#10;(Camera / UVC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="280" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <!-- 前處理 -->
+        <mxCell id="pre" value="前處理&#10;(灰階→二值化→形態學)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="200" height="60" as="geometry" />
+        </mxCell>
+        <!-- 判斷 -->
+        <mxCell id="check" value="缺陷判斷&#10;(Golden 比對 / 特徵分析)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="340" width="220" height="80" as="geometry" />
+        </mxCell>
+        <!-- PASS -->
+        <mxCell id="pass" value="✅ PASS&#10;良品出貨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="560" y="360" width="150" height="50" as="geometry" />
+        </mxCell>
+        <!-- FAIL -->
+        <mxCell id="fail" value="❌ FAIL&#10;NG 標記 / 複判" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="150" height="50" as="geometry" />
+        </mxCell>
+        <!-- 統計回饋 -->
+        <mxCell id="report" value="檢測統計回饋&#10;(良率 / 缺陷分類)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="480" width="200" height="50" as="geometry" />
+        </mxCell>
+        <!-- 邊 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="start" target="capture">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="capture" target="pre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="pre" target="check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;" edge="1" parent="1" source="check" target="pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;" edge="1" parent="1" source="check" target="fail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="check" target="report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
