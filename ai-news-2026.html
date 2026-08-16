@@ -2,6 +2,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#0d1117;color:#e6edf3;font-family:'Microsoft JhengHei','PingFang TC',sans-serif;line-height:1.7;padding-bottom:60px}
 .hero{background:linear-gradient(135deg,#161b22,#0d1117);padding:30px 20px;text-align:center;border-bottom:1px solid #30363d}.hero h1{font-size:2rem;background:linear-gradient(90deg,#58a6ff,#f78166);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.hero .date{color:#8b949e;margin-top:6px;font-size:.9rem}
+.day{display:none}.day.active{display:block}
 .datesel{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
 .datesel select{background:#21262d;color:#e6edf3;border:1px solid #484f58;border-radius:8px;padding:8px 12px;font-size:16px;cursor:pointer;max-width:90%}
 .datesel .navbtn{background:#21262d;color:#e6edf3;border:1px solid #484f58;border-radius:8px;padding:8px 14px;font-size:16px;cursor:pointer}
@@ -13,7 +14,7 @@
 .card.tool{border-left:4px solid #f78166}.card.tool .para{margin:7px 0}.card.tool .para b{color:#f78166}
 .zone.community h2{color:#f78166;border-color:#f78166}.subzone{margin:6px 0 18px}.subzone h3{font-size:1.08rem;color:#79c0ff;border-left:3px solid #79c0ff;padding-left:10px;margin:14px 0 10px}
 .footer{text-align:center;color:#484f58;padding:26px;font-size:.85rem}
-</style></head><body><div class="hero"><h1>🤖 AI 新聞日報</h1><div class="date">最後更新: 2026-08-16 18:25｜118 全球管道＋社群｜全球多管道・每日更新</div>
+</style></head><body><div class="hero"><h1>🤖 AI 新聞日報</h1><div class="date">最後更新: 2026-08-16 18:29｜118 全球管道＋社群｜全球多管道・每日更新</div>
 <div class="datesel">
 <select id="daySel" onchange="showDay(this.value)">
 <option value="20260816" selected>2026年8月16日</option><option value="20260815">2026年8月15日</option><option value="20260814">2026年8月14日</option><option value="20260813">2026年8月13日</option><option value="20260812">2026年8月12日</option><option value="20260811">2026年8月11日</option><option value="20260810">2026年8月10日</option>
@@ -231,7 +232,7 @@
 <div class="zone"><h2>🆕 新科技・新工具（詳解）</h2><div class="card tool"><h4><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot｜AI 程式助手 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>寫 C#/EmguCV 的 AI 程式助手，打半句就接完、照註解生成整段函式。</p><p class="para"><b>🤝 跟你的關係：</b>你天天寫機器視覺程式，Copilot 吃掉樣板與查語法時間，讓你專注演算法。</p><p class="para"><b>🚀 怎麼開始：</b>Visual Studio 裝擴充登入；輸入註解描述需求它會生程式。</p><p class="para"><b>🎮 打『// 讀圖片做 Canny 邊緣偵測』｜💡 免費試用</b></p></div><div class="card tool"><h4><a href="https://opencv.org" target="_blank" rel="noopener">OpenCV｜機器視覺聖經 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>最主流開源電腦視覺函式庫，也是你 EmguCV(C#版)底層。</p><p class="para"><b>🤝 跟你的關係：</b>你做 AOI/影像演算法輪子幾乎都做好了。</p><p class="para"><b>🚀 怎麼開始：</b>官網完整 API 與範例，對照 EmguCV 文件。</p><p class="para"><b>🎮 複習 Canny/Hough/透視校正｜💡 免費</b></p></div><div class="card tool"><h4><a href="https://goodinfo.tw" target="_blank" rel="noopener">Goodinfo｜台灣股市資訊網 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>台灣最受歡迎股市資訊網站，彙整完整數據。</p><p class="para"><b>🤝 跟你的關係：</b>你投碩天/仁寶/自推 EPS，能查營收月報、股本交叉驗證。</p><p class="para"><b>🚀 怎麼開始：</b>輸入代號看近四季EPS、營收年增。</p><p class="para"><b>🎮 輸入 3617 比對推算｜💡 免費</b></p></div><div class="card tool"><h4><a href="https://www.fail2ban.org" target="_blank" rel="noopener">Fail2ban｜主機入侵防護 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>Linux 自動入侵防護，暴力破解自動封 IP。</p><p class="para"><b>🤝 跟你的關係：</b>你的監控主機常暴露網路，Fail2ban 是第一道防線。</p><p class="para"><b>🚀 怎麼開始：</b>設 jail 監控 SSH/網頁登入。</p><p class="para"><b>🎮 監控 SSH 自動封鎖｜💡 Linux 免費</b></p></div><div class="card tool"><h4><a href="https://www.nhi.gov.tw" target="_blank" rel="noopener">健保快易通｜育兒幫手 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>衛福部健保署官方 APP，整合健康存摺。</p><p class="para"><b>🤝 跟你的關係：</b>老婆預產期10/9，能查新生兒疫苗/健保加保。</p><p class="para"><b>🚀 怎麼開始：</b>下載綁定健保卡+手機認證。</p><p class="para"><b>🎮 小孩出生後查疫苗｜💡 免費</b></p></div><div class="card tool"><h4><a href="https://www.sqlite.org" target="_blank" rel="noopener">SQLite｜輕量資料庫 <span class="src">🔗</span></a></h4><p class="para"><b>🔍 這是什麼：</b>單一 .db 檔就存的嵌入式資料庫。</p><p class="para"><b>🤝 跟你的關係：</b>OpenClaw cron/日誌用 SQLite；你寫工具存設定方便。</p><p class="para"><b>🚀 怎麼開始：</b>Python 內建 sqlite3 直接用。</p><p class="para"><b>🎮 Python 存監控紀錄｜💡 免費</b></p></div></div>
 </div></div>
 </div>
-<div class="footer">由 鍾心管家 🐶 為 老大 製作｜最後更新: 2026-08-16 18:25｜來源：全球 118 管道＋Reddit＋PTT＋社群｜僅整理新聞，無投資建議</div>
+<div class="footer">由 鍾心管家 🐶 為 老大 製作｜最後更新: 2026-08-16 18:29｜來源：全球 118 管道＋Reddit＋PTT＋社群｜僅整理新聞，無投資建議</div>
 <script>
 var DAYS=["20260816","20260815","20260814","20260813","20260812","20260811","20260810"];
 function showDay(k){
@@ -255,5 +256,10 @@ function nextDay(){
   var i=DAYS.indexOf(cur);
   if(i>0)showDay(DAYS[i-1]);
 }
+window.showDay = showDay;
+document.addEventListener('DOMContentLoaded', function(){
+  var h = window.location.hash.replace('#','');
+  if(h && document.getElementById('d-'+h)){ showDay(h); }
+});
 </script>
 </body></html>
