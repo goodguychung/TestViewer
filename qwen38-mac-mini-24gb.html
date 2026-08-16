@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mac mini M4 24GB 跑 Qwen3.8-27B｜Reddit 貼文中譯</title>
+<style>
+  body { font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; padding: 0; background: #f6f7f8; color: #1c1e21; }
+  .container { max-width: 760px; margin: 0; padding: 20px 24px 40px; }
+  h1 { font-size: 22px; color: #1c1e21; }
+  .meta { color: #65676b; font-size: 13px; margin-bottom: 16px; }
+  .post { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .post h2 { font-size: 17px; margin: 0 0 8px; }
+  .post .orig { color: #888; font-size: 12px; margin-bottom: 10px; }
+  .post .body { white-space: pre-wrap; line-height: 1.7; font-size: 14.5px; }
+  .comment { background: #fff; border: 1px solid #e4e6eb; border-left: 4px solid #1877f2; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+  .comment .author { font-weight: bold; font-size: 13px; color: #1877f2; }
+  .comment .score { color: #65676b; font-size: 12px; }
+  .comment .body { margin-top: 6px; font-size: 14px; line-height: 1.65; white-space: pre-wrap; }
+  .tech { background: #fff8e6; border: 1px solid #f0c36d; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+  .tech h3 { margin: 0 0 8px; font-size: 15px; color: #b26a00; }
+  .tech li { margin-bottom: 6px; font-size: 14px; }
+  .footer { color: #888; font-size: 12px; margin-top: 20px; }
+  a { color: #1877f2; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🍎 Mac mini M4 24GB 跑 Qwen3.8-27B：Reddit 實測貼文</h1>
+<div class="meta">來源：Reddit r/LocalLLM｜原文連結：<a href="https://old.reddit.com/r/LocalLLM/comments/1vpobdl/qwen3827b_on_mac_mini_m4_24_gb_ram/">qwen3.8:27b on Mac Mini M4 24 GB RAM</a><br>翻譯：鍾心管家｜最後更新：2026-08-16 23:27</div>
+
+<div class="post">
+  <h2>📄 貼文原文（中譯）</h2>
+  <div class="orig">英文原文：Qwen3.8:27b on Mac Mini M4 24 GB RAM</div>
+  <div class="body">我有一台 Mac mini M4（24GB 記憶體）。
+在這台 Mac 上，除了配合運行的 Ollama 和 Hermes 之外，沒有跑其他背景程式。
+現在我下載並運行了 qwen3.8:27b，並讓 GPU 使用率達到了 100%——但每秒生成 Token 的速度（tps）相當普通，大約只有 <b>2–4 tk/s</b>。
+
+有人使用類似的配置並取得更好的效能嗎？
+或者有人能提供任何加速的想法嗎？
+
+（當然，等 35B MoE 版本可能是一個選項，但以目前 24GB 的記憶體限制，我之前一直沒辦法讓 35b 模型跑起來。）</div>
+</div>
+
+<h2>💬 留言（中譯）</h2>
+
+<div class="comment">
+  <div class="author">u/groover75</div>
+  <div class="body">使用 <b>oMLX</b> 並下載 <b>Q4e-MTP</b> 版本，我跑出來有 <b>10 t/s</b>。</div>
+</div>
+
+<div class="comment" style="margin-left:24px">
+  <div class="author">↳ u/Jumpy_Possibility420（回覆）</div>
+  <div class="body">我以為 KV Cache 量化和 MTP（多 Token 預測）不能同時使用？至少我的 oMLX 是這樣提示我的。</div>
+</div>
+
+<div class="comment">
+  <div class="author">u/Purple_Wear_5397</div>
+  <div class="body">可以請教一下「運行得非常順暢」具體是指什麼嗎？速度大概是多少 tps，以及上下文窗口（context window）設多大？</div>
+</div>
+
+<div class="comment">
+  <div class="author">u/andrew-ooo</div>
+  <div class="body">你遇到的 2–4 t/s 其實是兩個獨立問題疊加在一起造成的：
+
+<b>第一，記憶體頻寬（Bandwidth）。</b> 基礎版 M4 的頻寬大約是 ~120 GB/s。Dense 27B 模型在 Q4 量化下約需 ~17 GB 的權重，而 Dense 模型每生成一個 Token 就必須讀取一次所有權重，因此在扣除其他開銷之前，你的理論硬體上限大約就是 120 ÷ 17 ≈ <b>7 t/s</b>。Gemma 跑起來感覺很順是因為它是 MoE——每個 Token 實際上只有幾十億參數處於啟動狀態，所以不會像 Dense 模型那樣被頻寬卡死。這兩者不是在同一個基準線上比較。
+
+<b>第二，24 GB 記憶體非常吃緊。</b> macOS 預設會將 GPU 鎖定記憶體（wired memory）限制在總 RAM 的約三分之二左右，因此 17 GB 的模型權重加上 KV Cache 會開始產生記憶體溢出/交換（spilling）。你可以嘗試執行：
+<code>sudo sysctl iogpu.wired_limit_mb=20480</code>
+（為作業系統保留約 4 GB）。在 24 GB 的機器上，光是這項調整通常就能讓吞吐量翻倍。
+
+接下來，不要走 Ollama 的 GGUF 路徑，改用 <b>MLX</b>（如 mlx-lm 或 LM Studio 的 MLX 執行環境），採用 4-bit 權重、KV Cache 設為 8-bit，並將 num_ctx 固定為你實際需要的長度——Ollama 預設分配的 context 會吃掉你所剩無幾的記憶體餘量。
+
+實際調整後大概可以達到 <b>6 t/s</b> 左右。如果你在 24 GB 上追求真正的快速度，還是建議繼續使用 MoE 模型。</div>
+</div>
+
+<div class="tech">
+  <h3>⚡ 重點整理（對 48G 老大有用）</h3>
+  <ul>
+    <li><b>24GB 跑 27B 的理論上限 ≈ 7 t/s</b>（M4 頻寬 120GB/s ÷ 17GB 權重）——2-4 t/s 是因為記憶體吃緊＋Ollama 設定</li>
+    <li>✅ <b>解法：MLX（不用 Ollama GGUF）</b>＋4-bit 權重＋KV cache 8-bit＋固定 context → 可到 10 t/s</li>
+    <li>✅ <b>sysctl 調高 GPU 鎖定記憶體</b>：<code>sudo sysctl iogpu.wired_limit_mb=20480</code>（24GB 可翻倍）</li>
+    <li>✅ <b>oMLX + Q4e-MTP 版實測 10 t/s</b>（同為 24GB 的留言者）</li>
+    <li>💡 27B 是 Dense 模型（吃頻寬）——要更快選 MoE（如 35B-A3B）</li>
+    <li>🎯 對 48GB 的意義：<b>記憶體不卡（48G 遠大於 17GB 權重）</b>，理論速度就是頻寬上限附近（M4 Pro 頻寬更高 → 更快）；48G 還可開大 context、同時跑其他模型</li>
+  </ul>
+</div>
+
+<div class="footer">
+  🐶 鍾心管家翻譯製作｜原文：r/LocalLLM「Qwen3.8:27b on Mac Mini M4 24 GB RAM」（2026-08-16）
+</div>
+
+</div>
+</body>
+</html>
