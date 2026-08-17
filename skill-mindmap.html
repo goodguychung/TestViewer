@@ -156,6 +156,7 @@ try{
   <button id="zoomOut" title="縮小" style="width:40px;height:40px;border-radius:50%;border:none;background:#238636;color:#fff;font-size:20px;cursor:pointer;">－</button>
 </div>
 <div id="resetBtn" style="position:fixed;right:16px;bottom:16px;z-index:199;background:#238636;color:#fff;border:none;border-radius:20px;padding:8px 16px;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.4)">⟲ 重置視圖</div>
+<a id="usageLink" href="skill-usage.html" style="position:fixed;left:16px;top:16px;z-index:200;background:#1a1d24;color:#4da3ff;border:1px solid #2a2e37;border-radius:20px;padding:8px 16px;font-size:13px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.4)">📊 使用統計</a>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   var b=document.getElementById('resetBtn');if(b){b.addEventListener('click',function(){try{window.__me&&window.__me.scale(0.95,{clientX:innerWidth/2,clientY:innerHeight/2})}catch(e){};try{window.__me&&window.__me.toCenter()}catch(e){};});}
