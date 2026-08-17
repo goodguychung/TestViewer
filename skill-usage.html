@@ -2,37 +2,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>技能使用統計</title><style>
  body{font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;background:#0f1115;color:#e8eaed;margin:0;padding:20px 24px 60px;}
+ a{color:#4da3ff;text-decoration:none;}
+ .top-link{margin-bottom:16px;font-size:13px;}
  h1{font-size:20px;margin:0 0 4px;}
- .sub{color:#888;font-size:12px;margin-bottom:20px;}
- .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
- .kpi{background:#1a1d24;border:1px solid #2a2e37;border-radius:10px;padding:14px 20px;min-width:120px;}
- .kpi .num{font-size:24px;font-weight:bold;color:#4da3ff;}
- .kpi .lab{font-size:12px;color:#999;margin-top:2px;}
- .cat-card{background:#1a1d24;border:1px solid #2a2e37;border-radius:12px;padding:16px 20px;margin-bottom:14px;}
- .cat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+ .sub{color:#888;font-size:12px;margin-bottom:16px;}
+ .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+ .kpi{background:#1a1d24;border:1px solid #2a2e37;border-radius:10px;padding:12px 18px;min-width:110px;}
+ .kpi .num{font-size:22px;font-weight:bold;color:#4da3ff;}
+ .kpi .lab{font-size:11px;color:#999;margin-top:2px;}
+ .search-box{margin-bottom:18px;}
+ .search-box input{width:100%;max-width:480px;background:#1a1d24;border:1px solid #2a2e37;color:#e8eaed;border-radius:8px;padding:10px 14px;font-size:13px;}
+ .cat-card{background:#1a1d24;border:1px solid #2a2e37;border-radius:12px;padding:14px 18px;margin-bottom:12px;}
+ .cat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:4px;}
  .cat-title{font-weight:bold;font-size:15px;}
  .cat-stats{font-size:12px;color:#aaa;}
  .srow{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:13px;}
- .sname{width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ddd;}
- .bar{flex:1;background:#2a2e37;border-radius:4px;height:14px;overflow:hidden;}
+ .sname{width:340px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ddd;}
+ .bar{flex:1;background:#2a2e37;border-radius:4px;height:14px;overflow:hidden;min-width:60px;}
  .fill{height:100%;background:linear-gradient(90deg,#4da3ff,#7c5cff);border-radius:4px;}
- .sval{width:110px;text-align:right;color:#bbb;}
+ .sval{width:110px;text-align:right;color:#bbb;flex-shrink:0;}
  .zero{opacity:.4;} .zero .sname{color:#777;}
  .expand{background:#242832;border:1px solid #333a45;color:#4da3ff;border-radius:6px;padding:6px 12px;margin-top:8px;font-size:12px;cursor:pointer;}
  .expand:hover{background:#2c3140;}
  .all-skills{margin-top:8px;border-top:1px dashed #333a45;padding-top:8px;}
  .footer{color:#666;font-size:11px;margin-top:24px;}
+ @media (max-width:640px){
+   .srow{flex-wrap:wrap;gap:4px 8px;padding:6px 2px;}
+   .sname{width:calc(100% - 50px);white-space:normal;line-height:1.4;font-size:12px;}
+   .bar{width:calc(100% - 85px);margin-left:0;}
+   .sval{width:75px;font-size:11px;}
+ }
 </style></head><body>
+<div class="top-link"><a href="skill-mindmap.html">◀ 返回技能樹心智圖</a></div>
 <h1>📊 技能樹使用統計</h1>
-<div class="sub">資料：Hermes .usage.json（累計）｜更新：2026-08-17 17:23</div>
+<div class="sub">資料：Hermes .usage.json（累計使用次數）｜更新：2026-08-17 17:33</div>
 <div class="kpis">
   <div class="kpi"><div class="num">166</div><div class="lab">總使用次數</div></div>
-  <div class="kpi"><div class="num">10</div><div class="lab">skill 數</div></div>
-  <div class="kpi"><div class="num">21</div><div class="lab">有使用 skill</div></div>
+  <div class="kpi"><div class="num">120</div><div class="lab">總技能數</div></div>
+  <div class="kpi"><div class="num">21 (18%)</div><div class="lab">已活化技能</div></div>
+  <div class="kpi"><div class="num">10</div><div class="lab">分類數</div></div>
 </div>
+<div class="search-box"><input type="text" id="skillSearch" placeholder="🔍 搜尋技能名稱或代號 (如: S10, 影片, 筆記)..." oninput="filterSkills(this.value)"></div>
 <div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#01 AI與內容生成</span>
+        <span class="cat-title">#01 AI與內容生成 (未活化)</span>
         <span class="cat-stats">共 0 次｜活化 0/13 (0%)</span>
       </div>
       <div class="srow">
@@ -70,11 +83,11 @@
         </div><div class="srow zero"><span class="sname">⋯ 另有 13 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
       <div class="all-skills" style="display:none"><div class="srow zero">
-          <span class="sname">S10 消除機械語氣，讓文字讀起來更像真人寫的</span>
+          <span class="sname">S02 將圖片或文字轉換成純文字拼成的趣味圖案</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
-          <span class="sname">S21 將影片旁白轉為摘要社羣貼文或文章</span>
+          <span class="sname">S03 把影片轉換成彩色純文字動畫與動態圖檔</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
@@ -82,7 +95,19 @@
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
+          <span class="sname">S05 快速設計與產生網頁雛形、簡報或展示頁面</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
           <span class="sname">S06 透過AI算圖流程自動生成圖片、影片與聲音</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S07 編寫與驗證網頁設計規範及樣式參數設定檔</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S10 消除機械語氣，讓文字讀起來更像真人寫的</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
@@ -94,15 +119,11 @@
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
-          <span class="sname">S02 將圖片或文字轉換成純文字拼成的趣味圖案</span>
+          <span class="sname">S13 參考知名網站樣式快速套用網頁排版設計</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
-          <span class="sname">S03 把影片轉換成彩色純文字動畫與動態圖檔</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S05 快速設計與產生網頁雛形、簡報或展示頁面</span>
+          <span class="sname">S14 在瀏覽器中製作高流暢度的文字排版展示</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
@@ -110,25 +131,17 @@
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
-          <span class="sname">S13 參考知名網站樣式快速套用網頁排版設計</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S07 編寫與驗證網頁設計規範及樣式參數設定檔</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S14 在瀏覽器中製作高流暢度的文字排版展示</span>
+          <span class="sname">S21 將影片旁白轉為摘要社羣貼文或文章</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#02 個人與生活</span>
+        <span class="cat-title">#02 個人與生活 </span>
         <span class="cat-stats">共 6 次｜活化 2/4 (50%)</span>
       </div>
       <div class="srow">
-          <span class="sname">S20 下載 YouTube 頻道/影片成 MP3、整頻道抓</span>
+          <span class="sname">S20 下載 YouTube 頻道/影片成 MP3、整頻道抓取與定期增量。含 yt-dl</span>
           <div class="bar"><div class="fill" style="width:83.3%"></div></div>
           <span class="sval">5次 (83%)</span>
         </div><div class="srow">
@@ -145,7 +158,15 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 2 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S20 下載 YouTube 頻道/影片成 MP3、整頻道抓取與定期增量。含 yt-dl</span>
+          <div class="bar"><div class="fill" style="width:83.3%"></div></div>
+          <span class="sval">5次 (83%)</span>
+        </div><div class="srow ">
+          <span class="sname">S24 備份與還原助理的人格記憶與工作設定</span>
+          <div class="bar"><div class="fill" style="width:16.7%"></div></div>
+          <span class="sval">1次 (17%)</span>
+        </div><div class="srow zero">
           <span class="sname">S22 用於展示客製化功能的入門示範技能</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
@@ -153,18 +174,10 @@
           <span class="sname">S23 為助理設計獨特的性格定位、名字與頭像</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
-          <span class="sname">S24 備份與還原助理的人格記憶與工作設定</span>
-          <div class="bar"><div class="fill" style="width:16.7%"></div></div>
-          <span class="sval">1次 (17%)</span>
-        </div><div class="srow ">
-          <span class="sname">S20 下載 YouTube 頻道/影片成 MP3、整頻道抓</span>
-          <div class="bar"><div class="fill" style="width:83.3%"></div></div>
-          <span class="sval">5次 (83%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#03 新聞與社群</span>
+        <span class="cat-title">#03 新聞與社群 </span>
         <span class="cat-stats">共 26 次｜活化 1/10 (10%)</span>
       </div>
       <div class="srow">
@@ -201,7 +214,15 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 9 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S33 彙整全球重要資訊並自動產生每日新聞網頁</span>
+          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
+          <span class="sval">26次 (100%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S09 線上搜尋並下載適合對話情境的動態表情包</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
           <span class="sname">S25 依關鍵字或作者搜尋學術論文庫的論文</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
@@ -233,22 +254,14 @@
           <span class="sname">S32 搜尋與發布社羣貼文或傳送私訊</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S09 線上搜尋並下載適合對話情境的動態表情包</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
-          <span class="sname">S33 彙整全球重要資訊並自動產生每日新聞網頁</span>
-          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
-          <span class="sval">26次 (100%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#04 智慧家庭</span>
+        <span class="cat-title">#04 智慧家庭 </span>
         <span class="cat-stats">共 6 次｜活化 1/2 (50%)</span>
       </div>
       <div class="srow">
-          <span class="sname">S19 使用時機: 語音控制/喚醒詞/自動播放/助理捷徑。v</span>
+          <span class="sname">S19 使用時機: 語音控制/喚醒詞/自動播放/助理捷徑。voice-listener </span>
           <div class="bar"><div class="fill" style="width:100.0%"></div></div>
           <span class="sval">6次 (100%)</span>
         </div><div class="srow">
@@ -257,18 +270,18 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S19 使用時機: 語音控制/喚醒詞/自動播放/助理捷徑。voice-listener </span>
+          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
+          <span class="sval">6次 (100%)</span>
+        </div><div class="srow zero">
           <span class="sname">S34 用電腦遠端開關與調整智慧燈泡的顏色</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
-          <span class="sname">S19 使用時機: 語音控制/喚醒詞/自動播放/助理捷徑。v</span>
-          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
-          <span class="sval">6次 (100%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#05 理財與投資</span>
+        <span class="cat-title">#05 理財與投資 </span>
         <span class="cat-stats">共 2 次｜活化 1/2 (50%)</span>
       </div>
       <div class="srow">
@@ -281,26 +294,26 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
-          <span class="sname">S35 依財報公式精準推算公司單季每股獲利與財務表現</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
+      <div class="all-skills" style="display:none"><div class="srow ">
           <span class="sname">S119 負責兩個AI管家之間的溝通、傳檔與互助協作</span>
           <div class="bar"><div class="fill" style="width:100.0%"></div></div>
           <span class="sval">2次 (100%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S35 依財報公式精準推算公司單季每股獲利與財務表現</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#06 生產力與辦公</span>
+        <span class="cat-title">#06 生產力與辦公 </span>
         <span class="cat-stats">共 94 次｜活化 9/50 (18%)</span>
       </div>
       <div class="srow">
-          <span class="sname">S50 使用時機: 老大說「聽邏輯思維/換一則」或維護羅振宇</span>
+          <span class="sname">S50 使用時機: 老大說「聽邏輯思維/換一則」或維護羅振宇音檔管線。</span>
           <div class="bar"><div class="fill" style="width:23.4%"></div></div>
           <span class="sval">22次 (23%)</span>
         </div><div class="srow">
-          <span class="sname">S65 使用時機: 老大要求語音控制、喚醒詞、OK Goog</span>
+          <span class="sname">S65 使用時機: 老大要求語音控制、喚醒詞、OK Google 捷徑、自動播放音檔、看</span>
           <div class="bar"><div class="fill" style="width:17.0%"></div></div>
           <span class="sval">16次 (17%)</span>
         </div><div class="srow">
@@ -308,7 +321,7 @@
           <div class="bar"><div class="fill" style="width:16.0%"></div></div>
           <span class="sval">15次 (16%)</span>
         </div><div class="srow">
-          <span class="sname">S46 Use when 老大要接 Google API 或</span>
+          <span class="sname">S46 Use when 老大要接 Google API 或 OAuth 授權卡關。家庭</span>
           <div class="bar"><div class="fill" style="width:13.8%"></div></div>
           <span class="sval">13次 (14%)</span>
         </div><div class="srow">
@@ -316,11 +329,11 @@
           <div class="bar"><div class="fill" style="width:10.6%"></div></div>
           <span class="sval">10次 (11%)</span>
         </div><div class="srow">
-          <span class="sname">S45 使用時機: 發布/更新 GitHub Pages 網</span>
+          <span class="sname">S45 使用時機: 發布/更新 GitHub Pages 網頁、恢復被覆蓋檔案、合併 H</span>
           <div class="bar"><div class="fill" style="width:9.6%"></div></div>
           <span class="sval">9次 (10%)</span>
         </div><div class="srow">
-          <span class="sname">S64 Use when 老大要求推薦沒看過的影片或查詢看過</span>
+          <span class="sname">S64 Use when 老大要求推薦沒看過的影片或查詢看過什麼。SQLite 觀看紀錄</span>
           <div class="bar"><div class="fill" style="width:6.4%"></div></div>
           <span class="sval">6次 (6%)</span>
         </div><div class="srow">
@@ -329,7 +342,55 @@
           <span class="sval">2次 (2%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 41 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S50 使用時機: 老大說「聽邏輯思維/換一則」或維護羅振宇音檔管線。</span>
+          <div class="bar"><div class="fill" style="width:23.4%"></div></div>
+          <span class="sval">22次 (23%)</span>
+        </div><div class="srow ">
+          <span class="sname">S65 使用時機: 老大要求語音控制、喚醒詞、OK Google 捷徑、自動播放音檔、看</span>
+          <div class="bar"><div class="fill" style="width:17.0%"></div></div>
+          <span class="sval">16次 (17%)</span>
+        </div><div class="srow ">
+          <span class="sname">S77 製作並發布技能樹心智圖網頁</span>
+          <div class="bar"><div class="fill" style="width:16.0%"></div></div>
+          <span class="sval">15次 (16%)</span>
+        </div><div class="srow ">
+          <span class="sname">S46 Use when 老大要接 Google API 或 OAuth 授權卡關。家庭</span>
+          <div class="bar"><div class="fill" style="width:13.8%"></div></div>
+          <span class="sval">13次 (14%)</span>
+        </div><div class="srow ">
+          <span class="sname">S62 讀取區域網路或共享資料夾內的檔案</span>
+          <div class="bar"><div class="fill" style="width:10.6%"></div></div>
+          <span class="sval">10次 (11%)</span>
+        </div><div class="srow ">
+          <span class="sname">S45 使用時機: 發布/更新 GitHub Pages 網頁、恢復被覆蓋檔案、合併 H</span>
+          <div class="bar"><div class="fill" style="width:9.6%"></div></div>
+          <span class="sval">9次 (10%)</span>
+        </div><div class="srow ">
+          <span class="sname">S64 Use when 老大要求推薦沒看過的影片或查詢看過什麼。SQLite 觀看紀錄</span>
+          <div class="bar"><div class="fill" style="width:6.4%"></div></div>
+          <span class="sval">6次 (6%)</span>
+        </div><div class="srow ">
+          <span class="sname">S40 負責兩個AI管家之間的溝通、傳檔與互助協作</span>
+          <div class="bar"><div class="fill" style="width:2.1%"></div></div>
+          <span class="sval">2次 (2%)</span>
+        </div><div class="srow ">
+          <span class="sname">S73 挑選熱門模板並製作搞笑梗圖</span>
+          <div class="bar"><div class="fill" style="width:1.1%"></div></div>
+          <span class="sval">1次 (1%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S01 繪製深色質感的雲端架構與系統流程圖網頁</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S08 繪製手繪風格的流程圖、架構圖與時序圖</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S120 用JSON描述流程並自動生成不亂掉的draw.io流程圖</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
           <span class="sname">S36 自動讀取、新增或修改線上表格資料</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
@@ -430,6 +491,42 @@
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
+          <span class="sname">S68 教導並建立將多個技能串連成自動化流程的方法</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S69 分析表格數據並計算統計資料或製作樞紐分析</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S70 一鍵完成數據分析、產出試算表並生成視覺報表</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S71 把 CSV、Excel 或 JSON 資料變成精美的視覺化報表</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S72 連接與管理外部工具的擴充服務</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S74 將語音錄音檔直接轉換成逐字文字稿</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S75 在簡報內文旁自動生成對應的工程說明圖</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S76 建立、讀取、編輯 PowerPoint 簡報（.pptx/.potx）</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S78 從影片中擷取單張畫面或剪輯短片段</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
           <span class="sname">S79 把試算表轉成文字檔方便AI閱讀與分析</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
@@ -442,97 +539,13 @@
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero">
-          <span class="sname">S76 建立、讀取、編輯 PowerPoint 簡報（.pp</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S75 在簡報內文旁自動生成對應的工程說明圖</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
           <span class="sname">S82 依公司制式模板規範自動填入簡報文字</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S69 分析表格數據並計算統計資料或製作樞紐分析</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S70 一鍵完成數據分析、產出試算表並生成視覺報表</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S71 把 CSV、Excel 或 JSON 資料變成精美的</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S74 將語音錄音檔直接轉換成逐字文字稿</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S78 從影片中擷取單張畫面或剪輯短片段</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S68 教導並建立將多個技能串連成自動化流程的方法</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S72 連接與管理外部工具的擴充服務</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S08 繪製手繪風格的流程圖、架構圖與時序圖</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S120 用JSON描述流程並自動生成不亂掉的draw.io流</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S01 繪製深色質感的雲端架構與系統流程圖網頁</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
-          <span class="sname">S73 挑選熱門模板並製作搞笑梗圖</span>
-          <div class="bar"><div class="fill" style="width:1.1%"></div></div>
-          <span class="sval">1次 (1%)</span>
-        </div><div class="srow ">
-          <span class="sname">S40 負責兩個AI管家之間的溝通、傳檔與互助協作</span>
-          <div class="bar"><div class="fill" style="width:2.1%"></div></div>
-          <span class="sval">2次 (2%)</span>
-        </div><div class="srow ">
-          <span class="sname">S64 Use when 老大要求推薦沒看過的影片或查詢看過</span>
-          <div class="bar"><div class="fill" style="width:6.4%"></div></div>
-          <span class="sval">6次 (6%)</span>
-        </div><div class="srow ">
-          <span class="sname">S45 使用時機: 發布/更新 GitHub Pages 網</span>
-          <div class="bar"><div class="fill" style="width:9.6%"></div></div>
-          <span class="sval">9次 (10%)</span>
-        </div><div class="srow ">
-          <span class="sname">S62 讀取區域網路或共享資料夾內的檔案</span>
-          <div class="bar"><div class="fill" style="width:10.6%"></div></div>
-          <span class="sval">10次 (11%)</span>
-        </div><div class="srow ">
-          <span class="sname">S46 Use when 老大要接 Google API 或</span>
-          <div class="bar"><div class="fill" style="width:13.8%"></div></div>
-          <span class="sval">13次 (14%)</span>
-        </div><div class="srow ">
-          <span class="sname">S77 製作並發布技能樹心智圖網頁</span>
-          <div class="bar"><div class="fill" style="width:16.0%"></div></div>
-          <span class="sval">15次 (16%)</span>
-        </div><div class="srow ">
-          <span class="sname">S65 使用時機: 老大要求語音控制、喚醒詞、OK Goog</span>
-          <div class="bar"><div class="fill" style="width:17.0%"></div></div>
-          <span class="sval">16次 (17%)</span>
-        </div><div class="srow ">
-          <span class="sname">S50 使用時機: 老大說「聽邏輯思維/換一則」或維護羅振宇</span>
-          <div class="bar"><div class="fill" style="width:23.4%"></div></div>
-          <span class="sval">22次 (23%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#07 程式與開發</span>
+        <span class="cat-title">#07 程式與開發 </span>
         <span class="cat-stats">共 27 次｜活化 5/33 (15%)</span>
       </div>
       <div class="srow">
@@ -569,7 +582,87 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 28 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S100 設定並排除助理連線伺服器的疑難雜症</span>
+          <div class="bar"><div class="fill" style="width:55.6%"></div></div>
+          <span class="sval">15次 (56%)</span>
+        </div><div class="srow ">
+          <span class="sname">S98 設定與管理助理的各項進階功能</span>
+          <div class="bar"><div class="fill" style="width:29.6%"></div></div>
+          <span class="sval">8次 (30%)</span>
+        </div><div class="srow ">
+          <span class="sname">S91 自動回答並操作黑底白字視窗裡的安裝導引步驟</span>
+          <div class="bar"><div class="fill" style="width:7.4%"></div></div>
+          <span class="sval">2次 (7%)</span>
+        </div><div class="srow ">
+          <span class="sname">S85 指派AI工程師撰寫程式碼並自動修復問題</span>
+          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
+          <span class="sval">1次 (4%)</span>
+        </div><div class="srow ">
+          <span class="sname">S89 讓安裝在不同電腦上的AI助理互相溝通合作</span>
+          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
+          <span class="sval">1次 (4%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S101 檢查並分析桌面應用程式的畫面結構</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S102 自動化解多人同時修改檔案時的內容衝突</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S103 檢查並修復伺服器程式的執行錯誤</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S104 指派寫程式與修復問題的任務給程式助手</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S105 在開始工作前先規劃好清楚的執行步驟</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S106 協助檢查並找出程式碼中的錯誤</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S107 自動檢查程式碼安全性與品質並協助修正</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S108 精簡並清理修改過的程式碼以提升品質</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S109 快速進行小實驗以驗證想法是否可行</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S110 系統化分析並找出程式問題的根本原因</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S111 採用先寫測試再寫程式的軟體開發流程</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S112 光纖陣列相機檢測系統的設計與開發紀錄</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S113 自動操作瀏覽器點擊網頁、填表與管理登入</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S114 抗自動化偵測的瀏覽器爬蟲（Docker 版），繞過網站反爬蟲機制</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S18 遠端控制視覺互動設計軟體</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero">
           <span class="sname">S83 把現有的AI助理搬家轉移到新系統</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
@@ -621,90 +714,10 @@
           <span class="sname">S99 撰寫並建立新的助理專屬技能文件</span>
           <div class="bar"><div class="fill" style="width:0.0%"></div></div>
           <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S101 檢查並分析桌面應用程式的畫面結構</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S102 自動化解多人同時修改檔案時的內容衝突</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S103 檢查並修復伺服器程式的執行錯誤</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S104 指派寫程式與修復問題的任務給程式助手</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S105 在開始工作前先規劃好清楚的執行步驟</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S106 協助檢查並找出程式碼中的錯誤</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S107 自動檢查程式碼安全性與品質並協助修正</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S108 精簡並清理修改過的程式碼以提升品質</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S109 快速進行小實驗以驗證想法是否可行</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S110 系統化分析並找出程式問題的根本原因</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S111 採用先寫測試再寫程式的軟體開發流程</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S113 自動操作瀏覽器點擊網頁、填表與管理登入</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S114 抗自動化偵測的瀏覽器爬蟲（Docker 版），繞過網</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S18 遠端控制視覺互動設計軟體</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow zero">
-          <span class="sname">S112 光纖陣列相機檢測系統的設計與開發紀錄</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
-        </div><div class="srow ">
-          <span class="sname">S85 指派AI工程師撰寫程式碼並自動修復問題</span>
-          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
-          <span class="sval">1次 (4%)</span>
-        </div><div class="srow ">
-          <span class="sname">S89 讓安裝在不同電腦上的AI助理互相溝通合作</span>
-          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
-          <span class="sval">1次 (4%)</span>
-        </div><div class="srow ">
-          <span class="sname">S91 自動回答並操作黑底白字視窗裡的安裝導引步驟</span>
-          <div class="bar"><div class="fill" style="width:7.4%"></div></div>
-          <span class="sval">2次 (7%)</span>
-        </div><div class="srow ">
-          <span class="sname">S98 設定與管理助理的各項進階功能</span>
-          <div class="bar"><div class="fill" style="width:29.6%"></div></div>
-          <span class="sval">8次 (30%)</span>
-        </div><div class="srow ">
-          <span class="sname">S100 設定並排除助理連線伺服器的疑難雜症</span>
-          <div class="bar"><div class="fill" style="width:55.6%"></div></div>
-          <span class="sval">15次 (56%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#08 系統與維運</span>
+        <span class="cat-title">#08 系統與維運 </span>
         <span class="cat-stats">共 5 次｜活化 2/3 (67%)</span>
       </div>
       <div class="srow">
@@ -721,22 +734,22 @@
           <span class="sval">0次 (0%)</span>
         </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
       <button class="expand" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent==='展開全部 ▶'?'收合 ▲':'展開全部 ▶'">展開全部 ▶</button>
-      <div class="all-skills" style="display:none"><div class="srow zero">
-          <span class="sname">S115 搜尋、下載與上傳各類人工智慧模型和資料集</span>
-          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
-          <span class="sval">0次 (0%)</span>
+      <div class="all-skills" style="display:none"><div class="srow ">
+          <span class="sname">S116 排查與修復助理系統本身的當機或連線問題</span>
+          <div class="bar"><div class="fill" style="width:60.0%"></div></div>
+          <span class="sval">3次 (60%)</span>
         </div><div class="srow ">
           <span class="sname">S117 監控助理運作狀態並在卡住時自動喚醒</span>
           <div class="bar"><div class="fill" style="width:40.0%"></div></div>
           <span class="sval">2次 (40%)</span>
-        </div><div class="srow ">
-          <span class="sname">S116 排查與修復助理系統本身的當機或連線問題</span>
-          <div class="bar"><div class="fill" style="width:60.0%"></div></div>
-          <span class="sval">3次 (60%)</span>
+        </div><div class="srow zero">
+          <span class="sname">S115 搜尋、下載與上傳各類人工智慧模型和資料集</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#09 育兒與家庭</span>
+        <span class="cat-title">#09 育兒與家庭 (未活化)</span>
         <span class="cat-stats">共 0 次｜活化 0/1 (0%)</span>
       </div>
       <div class="srow">
@@ -752,7 +765,7 @@
         </div></div>
     </div><div class="cat-card">
       <div class="cat-head">
-        <span class="cat-title">#10 音樂與娛樂</span>
+        <span class="cat-title">#10 音樂與娛樂 (未活化)</span>
         <span class="cat-stats">共 0 次｜活化 0/2 (0%)</span>
       </div>
       <div class="srow">
@@ -775,5 +788,22 @@
           <span class="sval">0次 (0%)</span>
         </div></div>
     </div>
-<div class="footer">🐶 鍾心管家 技能使用統計｜僅統計 .usage.json 有記錄的 skill（其餘補 0 = 未活化）</div>
+<div class="footer">🐶 鍾心管家 技能使用統計｜.usage.json 累計 use_count（未記錄補 0 = 未活化）</div>
+<script>
+function filterSkills(q){
+  q = q.trim().toLowerCase();
+  const cards = document.querySelectorAll('.cat-card');
+  cards.forEach(card => {
+    const rows = card.querySelectorAll('.srow');
+    let any = false;
+    rows.forEach(r => {
+      const show = !q || r.textContent.toLowerCase().includes(q);
+      r.style.display = show ? '' : 'none';
+      if (show) any = true;
+    });
+    const head = card.querySelector('.cat-head');
+    card.style.display = (any || !q) ? '' : 'none';
+  });
+}
+</script>
 </body></html>
