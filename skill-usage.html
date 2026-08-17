@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技能使用統計</title><style>
+ body{font-family:-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;background:#0f1115;color:#e8eaed;margin:0;padding:20px 24px 60px;}
+ h1{font-size:20px;margin:0 0 4px;}
+ .sub{color:#888;font-size:12px;margin-bottom:20px;}
+ .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+ .kpi{background:#1a1d24;border:1px solid #2a2e37;border-radius:10px;padding:14px 20px;min-width:120px;}
+ .kpi .num{font-size:24px;font-weight:bold;color:#4da3ff;}
+ .kpi .lab{font-size:12px;color:#999;margin-top:2px;}
+ .cat-card{background:#1a1d24;border:1px solid #2a2e37;border-radius:12px;padding:16px 20px;margin-bottom:14px;}
+ .cat-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+ .cat-title{font-weight:bold;font-size:15px;}
+ .cat-stats{font-size:12px;color:#aaa;}
+ .srow{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:13px;}
+ .sname{width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ddd;}
+ .bar{flex:1;background:#2a2e37;border-radius:4px;height:14px;overflow:hidden;}
+ .fill{height:100%;background:linear-gradient(90deg,#4da3ff,#7c5cff);border-radius:4px;}
+ .sval{width:110px;text-align:right;color:#bbb;}
+ .zero{opacity:.4;} .zero .sname{color:#777;}
+ .footer{color:#666;font-size:11px;margin-top:24px;}
+</style></head><body>
+<h1>📊 技能樹使用統計</h1>
+<div class="sub">資料：Hermes .usage.json（累計使用次數）｜更新：2026-08-17 17:11</div>
+<div class="kpis">
+  <div class="kpi"><div class="num">164</div><div class="lab">總使用次數</div></div>
+  <div class="kpi"><div class="num">10</div><div class="lab">skill 數</div></div>
+  <div class="kpi"><div class="num">21</div><div class="lab">有使用 skill</div></div>
+</div>
+<div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#01 AI與內容生成</span>
+        <span class="cat-stats">共 0 次｜活化 0/13 (0%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S10 humanizer</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S21 youtube-content</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S04 baoyu-infographic</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S06 comfyui</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S11 manim-video</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S12 p5js</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S02 ascii-art</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S03 ascii-video</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 13 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#02 個人與生活</span>
+        <span class="cat-stats">共 6 次｜活化 2/4 (50%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S20 youtube-channel-audio</span>
+          <div class="bar"><div class="fill" style="width:83.3%"></div></div>
+          <span class="sval">5次 (83%)</span>
+        </div><div class="srow">
+          <span class="sname">S24 zhongxin-soul</span>
+          <div class="bar"><div class="fill" style="width:16.7%"></div></div>
+          <span class="sval">1次 (17%)</span>
+        </div><div class="srow">
+          <span class="sname">S22 my-first-skill</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S23 openclaw-persona-forge</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 2 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#03 新聞與社群</span>
+        <span class="cat-stats">共 26 次｜活化 1/10 (10%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S33 news-daily</span>
+          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
+          <span class="sval">26次 (100%)</span>
+        </div><div class="srow">
+          <span class="sname">S25 arxiv</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S26 blocked-page-recovery</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S27 blogwatcher</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S28 competitor-news-monitor</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S29 grounded-citations</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S30 llm-wiki</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S31 research-paper-writing</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 9 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#04 智慧家庭</span>
+        <span class="cat-stats">共 6 次｜活化 1/2 (50%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S19 voice-command-listener</span>
+          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
+          <span class="sval">6次 (100%)</span>
+        </div><div class="srow">
+          <span class="sname">S34 openhue</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#05 理財與投資</span>
+        <span class="cat-stats">共 2 次｜活化 1/2 (50%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S119 butler-comm-protocol</span>
+          <div class="bar"><div class="fill" style="width:100.0%"></div></div>
+          <span class="sval">2次 (100%)</span>
+        </div><div class="srow">
+          <span class="sname">S35 eps-estimator</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#06 生產力與辦公</span>
+        <span class="cat-stats">共 92 次｜活化 9/50 (18%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S50 luo-audio</span>
+          <div class="bar"><div class="fill" style="width:23.9%"></div></div>
+          <span class="sval">22次 (24%)</span>
+        </div><div class="srow">
+          <span class="sname">S65 voice-command-server</span>
+          <div class="bar"><div class="fill" style="width:17.4%"></div></div>
+          <span class="sval">16次 (17%)</span>
+        </div><div class="srow">
+          <span class="sname">S46 google-oauth-integration</span>
+          <div class="bar"><div class="fill" style="width:14.1%"></div></div>
+          <span class="sval">13次 (14%)</span>
+        </div><div class="srow">
+          <span class="sname">S77 skill-mindmap-builder</span>
+          <div class="bar"><div class="fill" style="width:14.1%"></div></div>
+          <span class="sval">13次 (14%)</span>
+        </div><div class="srow">
+          <span class="sname">S62 smb-share-access</span>
+          <div class="bar"><div class="fill" style="width:10.9%"></div></div>
+          <span class="sval">10次 (11%)</span>
+        </div><div class="srow">
+          <span class="sname">S45 github-pages-ops</span>
+          <div class="bar"><div class="fill" style="width:9.8%"></div></div>
+          <span class="sval">9次 (10%)</span>
+        </div><div class="srow">
+          <span class="sname">S64 video-watch-db</span>
+          <div class="bar"><div class="fill" style="width:6.5%"></div></div>
+          <span class="sval">6次 (7%)</span>
+        </div><div class="srow">
+          <span class="sname">S40 butler-comm-protocol</span>
+          <div class="bar"><div class="fill" style="width:2.2%"></div></div>
+          <span class="sval">2次 (2%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 41 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#07 程式與開發</span>
+        <span class="cat-stats">共 27 次｜活化 5/33 (15%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S100 hermes-gateway-ops</span>
+          <div class="bar"><div class="fill" style="width:55.6%"></div></div>
+          <span class="sval">15次 (56%)</span>
+        </div><div class="srow">
+          <span class="sname">S98 hermes-agent</span>
+          <div class="bar"><div class="fill" style="width:29.6%"></div></div>
+          <span class="sval">8次 (30%)</span>
+        </div><div class="srow">
+          <span class="sname">S91 driving-interactive-cli-</span>
+          <div class="bar"><div class="fill" style="width:7.4%"></div></div>
+          <span class="sval">2次 (7%)</span>
+        </div><div class="srow">
+          <span class="sname">S85 claude-code</span>
+          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
+          <span class="sval">1次 (4%)</span>
+        </div><div class="srow">
+          <span class="sname">S89 cross-machine-agent-coll</span>
+          <div class="bar"><div class="fill" style="width:3.7%"></div></div>
+          <span class="sval">1次 (4%)</span>
+        </div><div class="srow">
+          <span class="sname">S83 agent-migration</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S84 agent-to-hermes-migratio</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S86 codebase-inspection</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 28 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#08 系統與維運</span>
+        <span class="cat-stats">共 5 次｜活化 2/3 (67%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S116 openclaw-ops</span>
+          <div class="bar"><div class="fill" style="width:60.0%"></div></div>
+          <span class="sval">3次 (60%)</span>
+        </div><div class="srow">
+          <span class="sname">S117 stall-watch</span>
+          <div class="bar"><div class="fill" style="width:40.0%"></div></div>
+          <span class="sval">2次 (40%)</span>
+        </div><div class="srow">
+          <span class="sname">S115 huggingface-hub</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#09 育兒與家庭</span>
+        <span class="cat-stats">共 0 次｜活化 0/1 (0%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S118 parenting-benefits</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 1 個未使用</span></div>
+    </div><div class="cat-card">
+      <div class="cat-head">
+        <span class="cat-title">#10 音樂與娛樂</span>
+        <span class="cat-stats">共 0 次｜活化 0/2 (0%)</span>
+      </div>
+      <div class="srow">
+          <span class="sname">S16 songsee</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow">
+          <span class="sname">S17 songwriting-and-ai-music</span>
+          <div class="bar"><div class="fill" style="width:0.0%"></div></div>
+          <span class="sval">0次 (0%)</span>
+        </div><div class="srow zero"><span class="sname">⋯ 另有 2 個未使用</span></div>
+    </div>
+<div class="footer">🐶 鍾心管家 技能使用統計｜僅統計 .usage.json 有記錄的 skill（其餘補 0 = 未活化）</div>
+</body></html>
