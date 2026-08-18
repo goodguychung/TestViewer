@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資產負債表 ｜ 鍾心管家 🐶</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#f4f6f9;color:#222;line-height:1.7;padding:20px}
+  .wrap{max-width:880px;margin:0;padding-left:24px}
+  h1{font-size:26px;margin-bottom:4px;color:#1a3c64}
+  .sub{color:#666;font-size:13px;margin-bottom:20px}
+  .card{background:#fff;border-radius:12px;padding:20px 22px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .card h2{font-size:18px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e8ecf1}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{background:#1a3c64;color:#fff;padding:9px 10px;text-align:left;font-weight:600}
+  td{padding:9px 10px;border-bottom:1px solid #eef1f5}
+  tr:nth-child(even) td{background:#f8fafc}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .tot td{background:#fff8e6;font-weight:bold;border-top:2px solid #f0a500}
+  .rate{font-size:34px;font-weight:bold;color:#c0392b}
+  .rate small{font-size:14px;color:#888;font-weight:normal}
+  .kv{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .kv div{background:#f0f4f8;padding:10px 16px;border-radius:8px}
+  .kv b{display:block;font-size:12px;color:#666}
+  .kv span{font-size:17px;font-weight:bold;color:#1a3c64}
+  .note{background:#eef9f1;border-left:4px solid #2e9e5b;padding:12px 16px;font-size:13px;color:#1a6b3c;border-radius:6px;margin-bottom:16px}
+  .fnote{background:#fdeaea;border-left:4px solid #c0392b;padding:10px 14px;font-size:12px;color:#a03020;border-radius:6px;margin-bottom:12px}
+  footer{color:#999;font-size:12px;margin-top:20px;padding-left:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📊 個人資產負債表</h1>
+  <div class="sub">由「鍾心管家」自動維護 ｜ 資料來源：Yahoo Finance ｜ 最後更新: 2026-08-18 23:15</div>
+
+  <div class="card">
+    <h2>💱 美金匯率（USD/TWD）</h2>
+    <div class="rate">31.907<small> 新台幣 / 美元</small></div>
+    <div class="kv">
+      <div><b>報價時間</b><span>2026/8/18 23:12</span></div>
+      <div><b>資料來源</b><span>Yahoo Finance (TWD=X)</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📈 核心持股現值（老大 炤宇持有）</h2>
+    <div class="note">以下為老大（炤宇）名下的核心三檔持股，依 Yahoo Finance 最新報價（2026/8/18）即時換算市值。ACWD/WSML 為倫敦掛牌（ACWD.L/WSML.L）、以美元計價之累積型 ETF。</div>
+    <table>
+      <tr><th>標的</th><th class="num">股數</th><th class="num">最新價</th><th class="num">市值（USD）</th><th class="num">市值（TWD）</th></tr>
+      <tr><td>📌 3617 碩天（台股）</td><td class="num">15,000</td><td class="num">255.5 元</td><td class="num">120,130</td><td class="num">3,832,500</td></tr>
+      <tr><td>🌍 ACWD 全球股（倫敦）</td><td class="num">186</td><td class="num">329.30 USD</td><td class="num">61,250</td><td class="num">1,954,297</td></tr>
+      <tr><td>🌐 WSML 全球中小（倫敦）</td><td class="num">2,000</td><td class="num">10.69 USD</td><td class="num">21,380</td><td class="num">682,172</td></tr>
+      <tr class="tot"><td>核心三檔合計</td><td class="num">—</td><td class="num">—</td><td class="num">202,745</td><td class="num">6,468,969</td></tr>
+    </table>
+    <div style="font-size:12px;color:#888;margin-top:8px">市值換算以當日匯率 31.907 計。ACWD/WSML 為累積型 ETF（不發現金股息，股息滾入淨值）；3617 市值為台股收盤價 × 股數。</div>
+  </div>
+
+  <div class="card">
+    <h2>🗂 資產總覽（完整資產負債表快照）</h2>
+    <div class="fnote">⚠️ 以下為「資產負債表.xlsx」最近一次完整快照（2026-08-15，美金匯率 32.004）。完整表單每週三/六 02:00 自動更新；上方核心持股已用今日最新報價更新。</div>
+    <table>
+      <tr><th>類別</th><th class="num">台幣市值</th><th class="num">佔資產%</th></tr>
+      <tr><td>台股投資</td><td class="num">7,074,800</td><td class="num">43.8%</td></tr>
+      <tr><td>美股投資</td><td class="num">6,586,022</td><td class="num">40.8%</td></tr>
+      <tr><td>安全資產</td><td class="num">2,480,653</td><td class="num">15.4%</td></tr>
+      <tr class="tot"><td>資產合計</td><td class="num">16,141,475</td><td class="num">100%</td></tr>
+      <tr><td>負債（樂天信貸）</td><td class="num">1,268,009</td><td class="num">—</td></tr>
+      <tr class="tot"><td>淨資產</td><td class="num">14,873,466</td><td class="num">—</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📌 持股明細（資產負債表.xlsx）</h2>
+    <table>
+      <tr><th>代號</th><th>名稱</th><th class="num">炤宇</th><th class="num">佳蓉</th></tr>
+      <tr><td>3617</td><td>碩天</td><td class="num">15,000</td><td class="num">0</td></tr>
+      <tr><td>0050</td><td>元大台灣50</td><td class="num">50</td><td class="num">0</td></tr>
+      <tr><td>ACWD</td><td>SPDR MSCI ACWI（累積）</td><td class="num">186</td><td class="num">290</td></tr>
+      <tr><td>WSML</td><td>iShares MSCI World Small Cap（累積）</td><td class="num">2,000</td><td class="num">0</td></tr>
+      <tr><td>BRK.B</td><td>波克夏</td><td class="num">0</td><td class="num">40</td></tr>
+      <tr><td>VUSD</td><td>Vanguard S&amp;P 500（累積）</td><td class="num">0</td><td class="num">34</td></tr>
+      <tr><td>VGIT</td><td>美國中期公債</td><td class="num">0</td><td class="num">734</td></tr>
+      <tr><td>CBU7</td><td>債券期貨</td><td class="num">131</td><td class="num">0</td></tr>
+    </table>
+    <div style="font-size:12px;color:#888;margin-top:8px">股數為資產負債表.xlsx 最新快照（8/15），僅炤宇名下核心三檔以 8/18 最新價更新。</div>
+  </div>
+
+  <div style="font-size:12px;color:#888;margin-top:8px">⚠️ 以上僅供參考，不構成投資建議。股價為 Yahoo Finance 即時報價，可能與實際成交有差異；完整資產負債表以 NAS 上之 .xlsx 為準。</div>
+</div>
+<footer>由「鍾心管家」自動產生與維護 ｜ 資料來源：Yahoo Finance、資產負債表.xlsx ｜ 僅供參考，不構成投資建議</footer>
+</body>
+</html>
